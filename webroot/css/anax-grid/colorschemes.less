@@ -1,0 +1,204 @@
+/**
+* Color schemes
+*
+*/
+
+html.dark-theme {
+
+	//background-color: rgb(37, 37, 37);
+	background-color: #252120;
+
+	body {
+		//color: #fff;
+		//background-color: rgb(37, 37, 37);
+	}
+
+	.sitetitle {
+		color: #A92F41;
+	}
+
+	.article1 h1,
+	.article1 h2,
+	.article2 h1,
+	.article2 h2,
+	.question-title-heading a,
+	.question-title-heading-small a {
+		//font-family: @fontFamilyOrbitron;
+		color: #E5DFC5;
+	}
+
+	#main a,
+	//#footer a,
+	//.article1 a,
+	.comments-name a {
+		color: rgb(255, 255, 221);
+	}
+
+	/**
+	* Questions
+	*
+	*/
+	label, .question-detail-title-heading a {
+		color: #E5DFC5;
+	}
+
+	.question-detail-userinfo {
+		background: #91C7A9;
+	}
+
+	.stats-box, .stats-box-small {
+		background-color: #848375;
+	    color: #ffffee;
+	}
+
+	.answers-exist, .answers-exist-small {
+	    background-color: #91C7A9;
+	    color: #ffffee;
+	}
+
+	/*
+	* Accepted answer
+	*/
+	.answer-accepted, .answer-accepted a {
+	    color: @green;
+	}
+
+	/*
+	* Not yet accepted answer
+	*/
+	.answer-not-accepted a {
+	    color: @grey;
+	}
+
+	.answer-not-accepted a:hover {
+	    color: @green;
+	}
+
+	.navbar ul {
+	  background-color: #848375;
+	}
+
+	.navbar li.selected-parent,
+	.navbar li.is-parent,
+	.navbar li.selected {
+		color: #E5DFC5;
+		border-color: #E5DFC5;
+	}
+
+	.navbar li li.selected {
+		color: #E5DFC5;
+		border-color: #E5DFC5;
+	}
+
+	.comments-heading {
+		border-bottom: 2px solid rgb(37, 37, 37);
+	}
+
+	#wrapper,
+	#main-extended {
+		color: #E5DFC5;
+		background-color: #252120;
+	}
+
+	#featured-1,
+	#featured-2,
+	#featured-3,
+	#triptych-1,
+	#triptych-2,
+	#triptych-3 {
+		background: linear-gradient(to left, rgba(102, 51, 204, 0.2),  rgba(0, 0, 0, 0));
+	}
+
+	#footer-col-1,
+	#footer-col-2,
+	#footer-col-3,
+	#footer-col-4 {
+		background: linear-gradient(to left, rgba(102, 51, 204, 0.2),  rgba(0, 0, 0, 0));
+	}
+
+	#footer, .upper-footer, .upper-footer a {
+		color: #ddd;
+		background-color: #848375;
+	}
+
+	form, fieldset {
+		color: #000;
+		background-color: #252120;
+	}
+}
+
+html.light-theme {
+	//background-image: url("../../img/3px-tile.png");
+	//background-color: rgb(50, 54, 60);
+	.sitetitle {
+		color: @candyRed;
+	}
+
+	.article1 h1,
+	.article1 h2,
+	.article2 h1,
+	.article2 h2,
+	.calendar-heading {
+		border-bottom: 1px solid @candyRed;
+	}
+
+	#main a,
+	#main-extended a,
+	#sidebar-reduced a,
+	#fullpage a,
+	//#footer a,
+	//.article1 a,
+	.comments-name a {
+		color: @candyRed;
+	}
+
+	/*
+	* Accepted answer
+	*/
+	.answer-accepted, .answer-accepted a {
+	    color: @green;
+	}
+
+	/*
+	* Not yet accepted answer
+	*/
+	.answer-not-accepted a {
+	    color: @grey;
+	}
+
+	.answer-not-accepted a:hover {
+	    color: @green;
+	}
+
+	.navbar li.selected-parent,
+	.navbar li.is-parent,
+	.navbar li.selected {
+		color: @candyRed;
+		border-color: @candyRed;
+	}
+
+	.navbar li li.selected {
+		color: @candyRed;
+		border-color: @candyRed;
+	}
+
+	.comments-heading {
+		border-bottom: 2px solid @candyRed;
+	}
+
+	#featured-1,
+	#featured-2,
+	#featured-3,
+	#triptych-1,
+	#triptych-2,
+	#triptych-3 {
+		background: linear-gradient(to left, rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0));
+	}
+
+	#footer-col-1,
+	#footer-col-2,
+	#footer-col-3,
+	#footer-col-4 {
+		background: linear-gradient(to left, rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0));
+	}
+}

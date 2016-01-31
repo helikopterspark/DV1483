@@ -1,0 +1,211 @@
+/**
+* style for questions
+*
+*/
+
+.frontpage-question-table {
+    font-size: @fontSizeSmall;
+}
+
+.frontpage-question-table tr {
+    border-bottom: 1px solid rgb(234, 235, 236);
+}
+
+.badge-section {
+    float: left;
+}
+
+.question-shortlist-container {
+    .clearfix();
+    border-bottom: 1px solid rgb(234, 235, 236);
+    margin-bottom: 20px;
+}
+
+.question-stats, .question-stats-small {
+    text-align: center;
+    float: left;
+    font-size: @fontSizeSmall;
+    width: 10%;
+}
+
+.question-stats-small {
+    display: inline-block;
+    max-height: 2em;
+}
+
+.stats-box, .stats-box-small {
+    padding: 7px;
+    color: #99977;
+    background: rgb(244, 245, 246);
+}
+
+.stats-box-small, .answers-exist-small {
+    text-align: center;
+    height: 2.5em;
+}
+
+.answers-exist, .answers-exist-small {
+    background-color: #848375;
+    padding: 7px;
+    color: #ffffee;
+}
+
+.question-shortlist-content {
+    margin-left: 10%;
+    padding-left: 10px;
+    width: 90%;
+    font-size: @fontSizeSmall;
+}
+
+.question-shortlist-content-small {
+    .clearfix();
+    display: inline-block;
+}
+
+.question-shortlist-content img, .question-shortlist-content figure {
+    display: none;
+}
+
+.question-shortlist-userinfo {
+    .clearfix();
+    position: relative;
+    float: right;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    max-height: 50px;
+    background: rgb(234, 235, 236);
+}
+
+.question-shortlist-userinfo a, .user-top-list a {
+    color: @candyRed;
+}
+
+.readmore-link {
+    color: @candyRed;
+}
+
+.readmore-link:hover {
+    color: @candyRed;
+}
+
+.question-shortlist-userinfo img {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    margin-top: 3px;
+    margin-left: 4px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 2px 2px 2px #999;
+}
+
+.question-title-heading a, .question-title-heading-small a {
+    color: #000;
+}
+
+.question-title-heading-small {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+/**
+* Question detail view
+*
+*/
+.question-detail-title-heading a {
+    color: #000;
+}
+
+.question-detail-stats {
+    float: left;
+    padding-top: @magicNumber / 3;
+    line-height: @magicNumber / 4;
+    text-align: center;
+    width: 10%;
+}
+
+.question-detail-content {
+    .clearfix();
+    margin-left: 10%;
+    width: 90%;
+}
+
+.question-detail-content img, .question-detail-content figure {
+    max-width: 100%;
+}
+
+.question-detail-bottom {
+    .clearfix();
+    margin-top: 10px;
+}
+
+.question-detail-userinfo {
+    float: right;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    min-height: 70px;
+    background: rgb(234, 235, 236);
+}
+
+.question-detail-userinfo a {
+    color: @candyRed;
+}
+
+.question-detail-userinfo img {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 3px 3px 3px #999;
+}
+
+.userinfo-text {
+    margin-left: 70px;
+}
+
+/**
+* Question forms
+*
+*/
+.question-form-container h4, .question-editform-container h4 {
+    margin-left: 10%;
+    padding-top: @magicNumber;
+}
+
+.question-form-userinfo {
+    margin-top: @magicNumber;
+    text-align: right;
+    border-bottom: 1px dotted #ddd;
+}
+
+.question-form-userinfo a {
+    color: @candyRed;
+}
+
+input.text {
+   width: 100%;
+   border-style: none;
+   box-shadow: 1px 1px 1px #999;
+   font-size: 14px;
+}
+
+.question-editform, .question-form {
+   max-width: 100%;
+   background-color: #F5F5F5;
+}
+
+.question-form fieldset, .question-editform fieldset {
+   border-style: none;
+}
+
+.question-form textarea, .question-editform textarea {
+   width: 100%;
+   height: 200px;
+   border-style: none;
+   box-shadow: 1px 1px 1px #999;
+   font-size: 14px;
+}
