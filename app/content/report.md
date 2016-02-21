@@ -55,10 +55,10 @@ Det här kursmomentet kändes som en intensivkurs i Javascript-programmering. De
 Jag börjar också bli lite bättre vän med JSLint och förstår bättre vad den förväntar sig för kod för att bli nöjd. Det blir inte alltid 100% men närapå.
 
 ### Funktioner i egen variant av mos.js
-Jag skapade modulen `cramse.js` enligt förlagan. Den innehåller i dagsläget funktionen `getRandom()` och `getOffset()` som jag lånade från förlagan för bollupggiftens räkning.
+Jag skapade modulen `cramse.js` enligt förlagan. Den innehåller i dagsläget funktionen `getRandom()` och `getOffset()` som jag lånade från förlagan för bolluppgiftens räkning.
 
 ### Exempelprogram
-Exempelprogrammen från övningen har jag till största delen försökt att koda själv utan att titta på förlagan. Det höll fram till bollövningen som jag gick bet på först. Det känns som att den ligger för tidigt i övningen innan viktiga bitar förklarats. Den kanske skulle vara bättre placerad om den låg näst sist i övningen. I vilket fall som helst så gjorde jag ett försök på extrauppgiften med bollen. Funktionen `onMouseMove()` läser av muspekarens förflyttning över fönstret. Utifrån pekarens placering när musknappen släpps upp beräknas radien till bollens mittpunkt. Radiens storlek bestämmer sedan tiden för transition, dvs ju större radie desto kortare transition-tid. Fysikmodellen är kanske inte perfekt med det fungerar hjälpligt.
+Exempelprogrammen från övningen har jag till största delen försökt att koda själv utan att titta på förlagorna. Det höll fram till bollövningen som jag gick bet på först. Det känns som att den ligger för tidigt i övningen innan viktiga bitar förklarats. Den kanske skulle vara bättre placerad om den låg näst sist i övningen. I vilket fall som helst så gjorde jag ett försök på extrauppgiften med bollen. Funktionen `onMouseMove()` läser av muspekarens förflyttning över fönstret. Utifrån pekarens placering när musknappen släpps upp beräknas radien till bollens mittpunkt. Radiens storlek bestämmer sedan tiden för transition, dvs ju större radie desto kortare transition-tid. Fysikmodellen är kanske inte perfekt med det fungerar hjälpligt.
 
 Övriga uppgifter är ganska rättframma. Jag har försökt använda mig av funktioner som skapar och manipulerar DOM-objekt istället för att bara skriva HTML-taggar direkt i strängar, t ex i Numbers-exemplet med uppbyggnaden av tabellen.
 
@@ -85,11 +85,11 @@ Exempelprogrammen från övningen har jag till största delen försökt att koda
 ### Extra arbete med spelvariant
 Jag utgick ifrån exempelkoden och skapade ett litet fungerande spel där man ska leta sig fram igenom en labyrint. Först måste man hämta nyckeln för att låsa upp utgången och sedan ta sig till utgången. På vägen ska man undvika monstren.
 
-För att få till en spelplan i form av en labyrint så skapade jag modulen `maze.js`. Den genererar en labyrint som är unik varje gång. Sedan slumpas placeringarna av nyckeln och utgången. Där placeras också två monster som är CSS-sprites animerade mha `setInterval()`. Kommer man för nära någon av dem så blir det game over. AI:n för monstren är mycket primitiv. De går rakt fram tills det tar stopp, sedan byter de riktning. Dräför går det att lurpassa i dörröppningar för att smita förbi dem och tar man sats går de att springa rakt igenom. Ett äkta retrospel ska ha lite glitchar.
+För att få till en spelplan i form av en labyrint så skapade jag modulen `maze.js` utifrån en förlaga på stackoverflow. Den genererar en labyrint som är unik varje gång. Sedan slumpas placeringarna av nyckeln och utgången. Där placeras också två monster som är CSS-sprites animerade mha `setInterval()`. Kommer man för nära någon av dem så blir det game over. AI:n för monstren är mycket primitiv. De går rakt fram tills det tar stopp, sedan byter de riktning. Därför går det att lurpassa i dörröppningar för att smita förbi dem och tar man sats går de att springa rakt igenom. Ett äkta retrospel ska ha lite glitchar.
 
 Lyckas man ta sig till utgången laddas spelet om med en ny labyrint. Med mer tid skulle man kunna utveckla spelet mer med highscore och stigande svårighetsgrad. Sedan funderar jag på om det finns något bättre sätt att få till sprite-kollisioner än att som nu beräkna närheten mellan objekten.
 
-Jag har testat spelet i flertalet webbläsare och olika system och det fungerar i de flesta. Det strular dock lite i Chrome på vissa Windows-system då det inte går att plocka upp nyckeln. Det kan hjälpa att köra i helskärmsläge. Spelet fungerar bra i Firefox och övriga läsare i den mån jag har kunnat testa.
+Jag har testat spelet i flertalet webbläsare och olika system och det fungerar i de flesta. Det strular dock lite i Chrome på vissa Windows-system där det inte alltid går att plocka upp nyckeln eller kliva genom utgången. Det kan hjälpa att köra i helskärmsläge. Spelet fungerar bra i Firefox och övriga läsare i den mån jag har kunnat testa.
 
 ### Extra arbete med roulettespelet
 Jag snyggade till spelet genom att laborera lite mera med grafiken. Jag lade till en bild på ett roulettehjul som är animerat med keyframes. Klickar man på hjulet så börjar det snurra och spelet går igång. I övrigt har jag lagt till kontroller som förhindrar fortsatt spel när pengarna är slut och att det inte går att satsa mer än man har på kontot.
