@@ -78,7 +78,7 @@ $app->router->add('', function() use ($app) {
 */
 $app->router->add('helloworld', function() use($app) {
     $content = $app->fileContent->get('helloworld.html');
-    $side = $app->fileContent->get('playground.md');
+    $side = $app->fileContent->get('playground1.md');
  	$side = $app->textFilter->doFilter($side, 'shortcode, markdown');
     $app->theme->setTitle("Hello World!");
 

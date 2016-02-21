@@ -55,7 +55,7 @@ class CTopbar
             </form>
 EOD;
         */
-        $login = '<a href="../../kmom01/DV1483/webroot">Kmom01</a> | Kmom02';
+        $login = '<a href="../../../kmom01/DV1483/webroot">Kmom01</a> | Kmom02';
         $search = null;
 
         $html = <<<EOD
