@@ -26,10 +26,16 @@
      ],
 
      // This is a menu item
-     'playground'  => [
-         'text'  => 'LEKPLATS',
-         'url'   => $this->di->get('url')->create('playground'),
-         'title' => 'Lekplats'
+     'playground1'  => [
+         'text'  => 'KMOM01',
+         'url'   => $this->di->get('url')->create('playground1'),
+         'title' => 'Lekplats kmom01'
+     ],
+     // This is a menu item
+     'playground2'  => [
+         'text'  => 'KMOM02',
+         'url'   => $this->di->get('url')->create('playground2'),
+         'title' => 'Lekplats kmom02'
      ],
 
      'source' => [

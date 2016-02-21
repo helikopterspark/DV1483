@@ -93,7 +93,7 @@ return [
     'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js',
 
         // Array with javscript-files to include
-    'javascript_include' => [],
+    'javascript_include' => ['js/cramse.js', 'js/maze.js', 'js/mazerunner.js', 'js/baddie.js'],
 
         // Use google analytics for tracking, set key or null to disable
     'google_analytics' => null,

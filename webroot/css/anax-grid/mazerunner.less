@@ -1,0 +1,88 @@
+/**
+ * Import base style
+ */
+//@import "../template/base.less";
+@greyLight:#999;
+@greyLighter:#eee;
+#xflash{margin:2em auto;background-color:fadeout(@greyLighter,5%);min-height:10em;border:1px solid @greyLight;padding:1em;
+.border-radius(10px);.box-shadow();}
+
+/**
+ * Here comes specific style for a certain test program.
+ */
+
+ .thick {
+     font-weight:bold;
+ }
+
+@gridsize:19;
+@tile-size:32px;
+@tile-offset:34px;
+#xflash{width:@tile-size*@gridsize;height:@tile-size*@gridsize;}
+
+.preload {
+ -webkit-transition: none !important;
+ -moz-transition: none !important;
+ -ms-transition: none !important;
+ -o-transition: none !important;
+}
+
+ /** --------------------------------------------------------------
+ * Baddie from CSS sprite.
+ *
+ */
+#mb1{position:absolute;}
+#mb2{position:absolute;}
+#mb3{position:absolute;}
+
+.mbaddie{z-index:10;width:@tile-size;height:@tile-size;background-image:url(../../img/bester2.png);background-repeat:no-repeat;
+  .transition-property(e('left,top'));.transition-duration(0.2s);.transition-timing-function(ease);
+  &.mup{background-position:-@tile-offset*3 0;}
+  &.mdown{background-position:-@tile-offset*2 0px;}
+  &.mleft{background-position:-@tile-offset*1 0;}
+  &.mright{background-position:0 0;}
+}
+
+.mbaddie2{z-index:10;width:@tile-size;height:@tile-size;background-image:url(../../img/keymaster.png);background-repeat:no-repeat;
+  .transition-property(e('left,top'));.transition-duration(0.2s);.transition-timing-function(ease);
+  &.mup{background-position:-@tile-offset*3 0;}
+  &.mdown{background-position:-@tile-offset*2 0px;}
+  &.mleft{background-position:-@tile-offset*1 0;}
+  &.mright{background-position:0 0;}
+}
+.mbaddie3{z-index:10;width:@tile-size;height:@tile-size;background-image:url(../../img/gatekeeper.png);background-repeat:no-repeat;
+  .transition-property(e('left,top'));.transition-duration(0.2s);.transition-timing-function(ease);
+  &.mup{background-position:-@tile-offset*3 0;}
+  &.mdown{background-position:-@tile-offset*2 0px;}
+  &.mleft{background-position:-@tile-offset*1 0;}
+  &.mright{background-position:0 0;}
+}
+
+/** --------------------------------------------------------------
+ * Boulder Dash Gameplan
+ *
+ */
+//@bgcolor:green;
+.tile, .t, .block, .b{width:@tile-size;height:@tile-size;float:left;background-repeat:no-repeat;}
+.t12{background-image:url(../../img/tiles/floor/dirt0.png);}
+.t13{background-image:url(../../img/tiles/floor/dirt1.png);}
+.t14{background-image:url(../../img/tiles/floor/dirt2.png);}
+.t15{background-image:url(../../img/tiles/floor/dirt0.png);}
+.t16{background-image:url(../../img/tiles/floor/dirt1.png);}
+.t17{background-image:url(../../img/tiles/floor/dirt2.png);}
+.t18{background-image:url(../img/tiles/floor/grass_n.png);}
+.t19{background-image:url(../img/tiles/floor/grass_nw.png);}
+.t20{background-image:url(../img/tiles/floor/grass_w.png);}
+.t21{background-image:url(../img/tiles/floor/grass_full.png);}
+.t22{background-image:url(../img/tiles/floor/grass_sw.png);}
+.t23{background-image:url(../img/tiles/floor/grass_s.png);}
+.t24{background-image:url(../../img/tiles/key2.png);background-color:rgb(128, 100, 0);}
+.t25{background-image:url(../../img/tiles/passage/stone_stairs_down.png);background-color:#bbb;}
+.t26{background-image:url(../../img/tiles/passage/stone_gray1.png);}
+
+.b11{background-image:url(../../img/tiles/wall/stone_brick3.png);}
+.b12{background-image:url(../img/tiles/wall/crystal_wall02.png);}
+.b13{background-image:url(../../img/tiles/passage/stone_stairs_up.png);background-color:rgb(71, 52, 0);;}
+.b14{background-image:url(../img/tiles/wall/dngn_green_crystal_wall.png);background-color:green;}
+.b18{background-image:url(../../img/tiles/passage/stone_gray1.png);}
+.b19{background-image:url(../../img/tiles/wall/brick_brown-vines1.png);}

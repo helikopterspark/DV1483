@@ -43,16 +43,31 @@ $app->router->add('', function() use ($app) {
 });
 
 /**
-  * Playground
+  * Playground 1
   *
   */
- $app->router->add('playground', function() use ($app) {
- 	$app->theme->setTitle("Lekplats");
+ $app->router->add('playground1', function() use ($app) {
+ 	$app->theme->setTitle("Lekplats Kmom01");
     $baddie = $app->fileContent->get('baddie.html');
- 	$content = $app->fileContent->get('playground.md');
+ 	$content = $app->fileContent->get('playground1.md');
  	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
 
   $app->views->add('theme/index', ['content' => $baddie], 'main-extended');
+  $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
+
+});
+
+/**
+  * Playground 2
+  *
+  */
+ $app->router->add('playground2', function() use ($app) {
+ 	$app->theme->setTitle("Lekplats Kmom02");
+    $maze = $app->fileContent->get('kmom02.html');
+ 	$content = $app->fileContent->get('playground2.md');
+ 	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+
+  $app->views->add('theme/index', ['content' => $maze], 'main-extended');
   $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
 
 });

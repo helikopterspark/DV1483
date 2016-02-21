@@ -119,6 +119,6 @@
   s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 <?php endif; ?>
-<script src='<?=$this->url->asset('../webroot/js/baddie.js')?>'></script>
+
 </body>
 </html>
