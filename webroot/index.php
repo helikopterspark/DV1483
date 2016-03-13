@@ -21,54 +21,93 @@ $app->router->add('', function() use ($app) {
 
     $byline = $app->fileContent->get('byline.html');
 
-   $pagecontent = $content . $byline;
+    $pagecontent = $content . $byline;
 
     $app->views->add('theme/index', ['content' => $pagecontent], 'main');
-    $app->views->add('theme/index', ['content' => '<h3>Porträtt i 8 bitar</h3><img src="img/helikopterspark.jpg" alt="helikopterspark" />'], 'sidebar');
+    $app->views->add('theme/index', ['content' => '<h3>Porträtt i 8 bitar</h3>
+    <img class="clickable" src="img/helikopterspark.jpg" alt="helikopterspark" />'], 'sidebar');
 
 });
 
 /**
-  * Reports
-  *
-  */
- $app->router->add('report', function() use ($app) {
- 	$app->theme->setTitle("Redovisning");
- 	$content = $app->fileContent->get('report.md');
- 	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+* Reports
+*
+*/
+$app->router->add('report', function() use ($app) {
+    $app->theme->setTitle("Redovisning");
+    $content = $app->fileContent->get('report.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
     $byline = $app->fileContent->get('byline.html');
     $pagecontent = $content . $byline;
-  $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
+    $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
 
 });
 
 /**
-  * Playground 1
-  *
-  */
- $app->router->add('playground1', function() use ($app) {
- 	$app->theme->setTitle("Lekplats Kmom01");
+* Playground 1
+*
+*/
+$app->router->add('playground1', function() use ($app) {
+    $app->theme->setTitle("Lekplats Kmom01");
     $baddie = $app->fileContent->get('baddie.html');
- 	$content = $app->fileContent->get('playground1.md');
- 	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+    $content = $app->fileContent->get('playground1.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
 
-  $app->views->add('theme/index', ['content' => $baddie], 'main-extended');
-  $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
+    $app->views->add('theme/index', ['content' => $baddie], 'main-extended');
+    $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
 
 });
 
 /**
-  * Playground 2
-  *
-  */
- $app->router->add('playground2', function() use ($app) {
- 	$app->theme->setTitle("Lekplats Kmom02");
+* Playground 2
+*
+*/
+$app->router->add('playground2', function() use ($app) {
+    $app->theme->setTitle("Lekplats Kmom02");
     $maze = $app->fileContent->get('kmom02.html');
- 	$content = $app->fileContent->get('playground2.md');
- 	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+    $content = $app->fileContent->get('playground2.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
 
-  $app->views->add('theme/index', ['content' => $maze], 'main-extended');
-  $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
+    $app->views->add('theme/index', ['content' => $maze], 'main-extended');
+    $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
+
+});
+
+/**
+* Kmom03
+*
+*/
+$app->router->add('kmom03', function() use ($app) {
+    $app->theme->setTitle("Lekplats Kmom03");
+    $content = $app->fileContent->get('kmom03.html');
+    //$app->theme->addClassAttributeFor('html', 'dark-theme');
+
+    $app->views->add('theme/index', ['content' => $content], 'fullpage');
+
+});
+
+/**
+* plugin
+*
+*/
+$app->router->add('plugin', function() use ($app) {
+    $filenameArray = [];
+    $picArray = '';
+
+    $handle = opendir(dirname(realpath(__FILE__)).'/../webroot/img/gallery/');
+    while($file = readdir($handle)){
+        if($file !== '.' && $file !== '..'){
+            array_push($filenameArray, "../webroot/img/gallery/$file");
+        }
+    }
+    closedir($handle);
+    foreach ($filenameArray as $value) {
+        $picArray .= $value.",";
+    }
+    $app->theme->setTitle("Gallery and Lightbox jQuery plugin");
+    $app->theme->addClassAttributeFor('html', 'dark-theme');
+
+    $app->views->add('dv1483/plugin-page', ['picArray' => $picArray], 'fullpage');
 
 });
 
@@ -79,7 +118,7 @@ $app->router->add('', function() use ($app) {
 $app->router->add('helloworld', function() use($app) {
     $content = $app->fileContent->get('helloworld.html');
     $side = $app->fileContent->get('playground1.md');
- 	$side = $app->textFilter->doFilter($side, 'shortcode, markdown');
+    $side = $app->textFilter->doFilter($side, 'shortcode, markdown');
     $app->theme->setTitle("Hello World!");
 
     $app->views->add('theme/index', [

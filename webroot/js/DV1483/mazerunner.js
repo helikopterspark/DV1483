@@ -160,7 +160,7 @@ $(document).ready(function () {
         var posexit = Cramse.getOffset(document.getElementById(exittile));
         var posrock = {left: pleft, top: ptop}
 
-        if (Math.abs(posrock.left - poskey.left) < 2 && Math.abs(posrock.top - poskey.top) < 2 && !foundKey) {
+        if (Math.abs(posrock.left - poskey.left) < 16 && Math.abs(posrock.top - poskey.top) < 16 && !foundKey) {
             console.log('Key found!');
             foundKey = true;
             document.getElementById(keytile).className = 'tile t13 b10';
@@ -169,7 +169,7 @@ $(document).ready(function () {
             gameBlocks[exittile] = 10;
         }
 
-        if (Math.abs(posrock.left - posexit.left) < 2 && Math.abs(posrock.top - posexit.top) < 2 && foundKey) {
+        if (Math.abs(posrock.left - posexit.left) < 16 && Math.abs(posrock.top - posexit.top) < 16 && foundKey) {
             console.log('Exit found!');
             alert('You made it to the next level! ');
             location.reload(); // Start allover with new level
@@ -310,8 +310,6 @@ $(document).ready(function () {
     }
 
     if (sPage === 'playground2') {
-
-
 
         console.log('Drawing gameplan.');
         drawGamePlan(gameArea, gameBlocks);

@@ -3,6 +3,16 @@
  * Config-file for Anax, theme related settings, return it all as array.
  *
  */
+
+ $jsArray = [];
+ $handle = opendir(dirname(realpath(__FILE__)).'/../../webroot/js/DV1483');
+ while($file = readdir($handle)){
+     if($file !== '.' && $file !== '..'){
+         array_push($jsArray, "js/DV1483/$file");
+     }
+ }
+ closedir($handle);
+
  $theme = $this->di->session->has('colortheme') ? $this->di->session->get('colortheme') : 'light-theme';
 
 return [
@@ -93,7 +103,13 @@ return [
     'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js',
 
         // Array with javscript-files to include
-    'javascript_include' => ['js/cramse.js', 'js/maze.js', 'js/mazerunner.js', 'js/baddie.js'],
+        /*
+    'javascript_include' => ['js/cramse.js',
+                            'js/maze.js',
+                            'js/mazerunner.js',
+                            'js/baddie.js'],
+                            */
+    'javascript_include' => $jsArray,
 
         // Use google analytics for tracking, set key or null to disable
     'google_analytics' => null,

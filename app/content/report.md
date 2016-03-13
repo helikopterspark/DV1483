@@ -1,4 +1,4 @@
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03)
 
 <a id="Kmom01" class="anchor"></a>Kmom01: Kom igång med JavaScript
 --------------------------------
@@ -93,5 +93,27 @@ Jag har testat spelet i flertalet webbläsare och olika system och det fungerar 
 
 ### Extra arbete med roulettespelet
 Jag snyggade till spelet genom att laborera lite mera med grafiken. Jag lade till en bild på ett roulettehjul som är animerat med keyframes. Klickar man på hjulet så börjar det snurra och spelet går igång. I övrigt har jag lagt till kontroller som förhindrar fortsatt spel när pengarna är slut och att det inte går att satsa mer än man har på kontot.
+
+[Upp](#)
+
+<a id="Kmom03" class="anchor"></a>Kmom03: Grunderna i jQuery
+--------------------------------
+Jag hade inga som helst erfarenheter av jQuery innan detta kursmoment men efter att ha lekt runt en hel del så känns det väldigt användbart och lite roligare än ren JavaScript. Det går betydligt snabbare att få till fungerande saker.
+
+Det var inga direkta svårigheter med att efterlikna exemplen utan att titta på koden. Kurslitteraturen, jQuery-dokumentationen och stackoverflow gav svar på eventuella frågor. Det enda av exemplen som tog lite mera tid var slideshowen men jag fick till en okej sådan också tycker jag. Mina övningar finns under [Kmom03](kmom03) på min kurssida.
+
+Jag tycker som sagt att jQuery känns bra och kommer garanterat att använda mig av det i fortsättningen. Jag kan uppleva att koden blir lite rörig ibland men det kanske inte är jQuerys fel egentligen. Det handlar kanske mera om att jag måste hitta ett smart sätt att strukturera och organisera min JS-kod.
+
+### Min plugin: The Lightbox Gallery
+Jag har gjort en plugin som kombinerar funktionerna lightbox och galleri. Den läser in en lista med bildlänkar och bygger upp ett galleri av de ingående bilderna. Den väljer första bilden automatiskt att visa i större format. Sedan kan man klicka på de små bilderna för en större version. Klickar man sedan på den stora bilden så visas den i full storlek i en lightbox som lägger sig över sidan. Man klickar på bilden eller trycker på escape-tangenten för att stänga den.
+
+Pluginen skapar sina egna element och stylar dessa så att ingen extra CSS-fil behövs. Det enda man behöver göra är att lägga till en div med rätt id och en lista på filer i attributet data-images, sedan sköter pluginen resten.
+
+Det går även att anropa endast lightbox-funktionen för godtyckliga bilder.
+
+##### Egen sida för pluginen
+Jag har gjort en egen sida för pluginen där man kan se hur den fungerar. Jag lade lite extra tid på att styla sidan för att försöka få den att ”se ut som ett proffsjobb”. Där finns även länkar för nedladdning, i form av zip-set eller länk till Github-repot. Slutligen finns en instruktion för hur man gör för att få den att fungera.
+
+[The Lightbox Gallery](plugin)
 
 [Upp](#)

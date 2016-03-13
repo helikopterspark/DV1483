@@ -75,6 +75,6 @@ $(document).ready(function(){
         console.log('Current position: ' + target.offsetLeft + ', ' + target.offsetTop);
         console.log('Everything is ready.');
     } else {
-        console.log('Not baddie page.');
+        console.log('Not the baddie page.');
     }
 });

@@ -37,6 +37,19 @@
          'url'   => $this->di->get('url')->create('playground2'),
          'title' => 'Lekplats kmom02'
      ],
+     // This is a menu item
+     'playground3'  => [
+         'text'  => 'KMOM03',
+         'url'   => $this->di->get('url')->create('kmom03'),
+         'title' => 'Lekplats kmom03'
+     ],
+
+     // This is a menu item
+     'jqryplugin'  => [
+         'text'  => 'JQUERY PLUGIN',
+         'url'   => $this->di->get('url')->create('plugin'),
+         'title' => 'jQuery plugin'
+     ],
 
      'source' => [
          'text'  =>'KÄLLKOD',

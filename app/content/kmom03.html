@@ -1,0 +1,162 @@
+
+<h2>Nine small wrapped gifts to get started with jQuery</h2>
+<div id="box1" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>1.</h3>
+    <h3 class="example">1. Selecting items, hide, show and change their look</h3>
+    <div id="example1"><img class="example" src='../webroot/img/286608Königsee.jpg' alt='' /></div>
+    <p>The box minimizes itself when you click the x up in the right corner and you can open it up in full width by clicking the number or the wrapped giftbox.</p>
+    <p>When you click on the text or images in this example it will shift (toggle) between dark and light color.</p>
+</div>
+
+<div id="box2" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>2.</h3>
+    <div id="example2"><img class="example" src='../webroot/img/286608Königsee.jpg' alt='' /></div>
+    <h3 class="example">2. Events and event propagation</h3>
+    <p>In this example we look at event propagation. When you click anywhere in this box, independently on the cursor style, the box will toggle between grey and white. The same thing happens when you click on the image, and in addition, will the image toggle between larger and smaller size.</p>
+    <p>Any click in the image is also a click in the box which has its own eventhandler, the event is propagated up through the chain of eventhandlers. This behaviour can be stopped by using the method <code>stopPropagation()</code>.</p>
+</div>
+
+<div id="box3" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>3.</h3>
+    <div id="example3"><img class="example" src='../webroot/img/286608Königsee.jpg' alt='' /></div>
+    <h3 class="example">3. Add and remove elements</h3>
+    <p>Create a color palette from the image. Choose each color you think should be in there and add it to the palette, click the color to remove it.</p>
+    <form id="colorform">
+        <fieldset>
+            <label>Colorcode in hex (#eee or #5c5c5c):</label>
+            <input id="textfield" type="text" />
+            <input id="button" type="button" name="Add color" value="Add color" />
+        </fieldset>
+    </form>
+    <p>Color palette:</p>
+    <div id="palette"></div>
+</div>
+
+<div id="box4" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>4.</h3>
+    <h3 class="example">4. Let's resize me</h3>
+    <div class="textbox">
+        <p>Here are a couple of buttons which will resize the image when you press them. The current image size is also visible.</p>
+    </div>
+    <form id="resizeform">
+        <fieldset>
+            <input id="dims" type="button" name="dims" value="Get current dimensions wxh" />
+            <br />
+            <label id="widthbtns">Width: </label>
+            <input id="wplus" type="button" name="wplus" value="+"  />
+            <input id="wminus" type="button" name="wminus" value="-"  />
+            <br />
+            <label id="heightbtns">Height: </label>
+            <input id="hplus" type="button" name="hplus" value="+"  />
+            <input id="hminus" type="button" name="hminus" value="-"  />
+        </fieldset>
+    </form>
+    <div id="preview"></div>
+</div>
+
+<div id="box5" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>5.</h3>
+    <h3 class="example">5. Basic animations</h3>
+    <div id="example5"></div>
+    <div class="textbox">
+        <p>
+            Basic animations can make your page look a bit more lively by dynamically change its look. One good idea is to make movements a bit smoother. You can toggle the image visibility by fadeing it in or out.
+            You can also slide the image visibility by sliding it in or out.
+        </p>
+        <form id="fadeslide">
+            <fieldset>
+                <input id="fade" type="button" name="fade" value="fade"  />
+                <input id="slide" type="button" name="slide" value="slide"  />
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div id="box6" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>6.</h3>
+    <h3 class="example">6. A lightbox for images</h3>
+    <div id="example6">
+        <img id="small_pic" src='../webroot/img/286608Königsee.jpg' alt='' />
+    </div>
+    <div class="textbox">
+        <p>A lightbox is often used to display a larger version of an image without reloading the page. Click the image to try out my lightbox.</p>
+        <p>Click again on the image to close the lightbox or press the Escape key.</p>
+    </div>
+</div>
+
+<div id="box7" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>7.</h3>
+    <h3 class="example">7. An image gallery</h3>
+    <div id="gallery_container_ex">
+        <div id="big_pic"></div>
+        <div id="pic_array" data-images="
+        ../webroot/img/gallery/IMG_0401.jpg,
+        ../webroot/img/gallery/IMG_0400.jpg,
+        ../webroot/img/gallery/IMG_0461.jpg,
+        ../webroot/img/gallery/IMG_0778.jpg,
+        ../webroot/img/gallery/IMG_0787.JPG,
+        ../webroot/img/gallery/IMG_4457.jpg,
+        ../webroot/img/gallery/IMG_4588.jpg,
+        ../webroot/img/gallery/IMG_4652.jpg,
+        ../webroot/img/gallery/IMG_4700.jpg,
+        ../webroot/img/gallery/IMG_4938.jpg,
+        ../webroot/img/gallery/IMG_4939.jpg,
+        ../webroot/img/gallery/IMG_5440.JPG,
+        ../webroot/img/gallery/IMG_6000.jpg">
+    </div>
+</div>
+<div class="textbox">
+    <p>An image gallery may look in many ways but it usually acts as a container for a bunch of images and allows the user to easily traverse and look at the images.</p>
+</div>
+</div>
+
+<div id="box8" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>8.</h3>
+    <h3 class="example">8. A slideshow for your firstpage</h3>
+    <div id="slideshow_container">
+        <div id="big_pic_sl" data-images="
+        ../webroot/img/slideshow/IMG_0400.jpg,
+        ../webroot/img/slideshow/IMG_0461.jpg,
+        ../webroot/img/slideshow/IMG_0778.jpg,
+        ../webroot/img/slideshow/IMG_0787.JPG,
+        ../webroot/img/slideshow/IMG_4457.jpg,
+        ../webroot/img/slideshow/IMG_4588.jpg,
+        ../webroot/img/slideshow/IMG_4652.jpg,
+        ../webroot/img/slideshow/IMG_4700.jpg,
+        ../webroot/img/slideshow/IMG_4799.jpg">
+    </div>
+    <div class='para'>
+        <p>A slideshow is commonly used at the first page on many websites to display a set of images and change the image being displayed with a timed interval or by clicking it.</p>
+    </div>
+</div>
+</div>
+
+<div id="box9" class="box">
+    <div class="minimize" title="Minimize this box">x</div>
+    <img class='gift' src='../webroot/img/medium-present-or-a-gift-wrapped-box-0-17298.png' alt='' />
+    <h3 class='gift'>9.</h3>
+    <h3 class="example">9. A jQuery plugin</h3>
+    <div id="ex9">
+        <img src="../webroot/img/286608Königsee.jpg" alt="me" />
+    </div>
+    <div>
+        <p>Lets wrap all this exercise together in a jQuery package, wrapped as a jQuery plugin which is a nice way of extending jQuery.</p>
+        <p>Click on the image to try the lightbox plugin.</p>
+    </div>
+</div>
