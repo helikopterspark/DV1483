@@ -55,8 +55,10 @@
                 'height': '60px',
                 'box-shadow': '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
             }
-            var images = $("#lightbox-gallery-container").data('images').split(",");
-            var i, img;
+            var i, img, images = '';
+            if ($("#lightbox-gallery-container").length) {
+                images = $("#lightbox-gallery-container").data('images').split(",");
+            }
             for (i = 0; i < images.length; i++) {
                 if (images[i]) {
                     img = new Image();
