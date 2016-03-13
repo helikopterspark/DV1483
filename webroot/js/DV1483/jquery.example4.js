@@ -3,7 +3,7 @@
     $.fn.example4 = function() {
         function displayPreview() {
             var img = new Image();
-            img.src = "../webroot/img/286608Königsee.jpg";
+            img.src = "../webroot/img/286608Koenigsee.jpg";
             img.onload = function() {
                 $('#preview').append(img);
                 $("#preview img").addClass('example');
@@ -25,13 +25,11 @@
 
         $("#wplus").click(function() {
             $("#preview img").width($("#preview img").width() + 10);
-            console.log('width +');
             showDims();
         });
 
         $("#wminus").click(function() {
             $("#preview img").width($("#preview img").width() - 10);
-            console.log('width -');
             showDims();
         });
 

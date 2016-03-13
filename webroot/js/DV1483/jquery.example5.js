@@ -3,7 +3,7 @@
     $.fn.example5 = function() {
         function displayPreview() {
             var img = new Image();
-            img.src = "../webroot/img/286608Königsee.jpg";
+            img.src = "../webroot/img/286608Koenigsee.jpg";
             img.onload = function() {
                 $('#example5').append(img);
             }

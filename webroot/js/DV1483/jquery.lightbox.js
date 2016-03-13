@@ -12,9 +12,7 @@
                 'left': left,
                 'background-color': '#282828',
                 'padding': '15px',
-                //'border': '1px solid white',
                 'border-radius': '10px',
-                //'box-shadow': 'inset 0px 0px 10px rgba(0,0,0,0.9)',
                 'z-index': 10
             })
             .fadeIn();
