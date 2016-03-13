@@ -23,10 +23,9 @@ em {
 }
 </style>
 
-<h2 class="prgh-header">The Lightbox Gallery</h2>
+<h2 id="start" class="prgh-header">The Lightbox Gallery</h2>
 
-<div id="lightbox-gallery-container" data-images="<?=$picArray?>">
-</div>
+<div id="lightbox-gallery-container" data-images="<?=$picArray?>"></div>
 
 <p>
     The Lightbox Gallery is a jQuery plugin that takes a list of image links and creates a gallery with clickable images.

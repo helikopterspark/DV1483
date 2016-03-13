@@ -75,10 +75,5 @@ $(document).ready(function(){
             $('#ex9 img').click(function() {
                 $(this).lightbox();
             });
-        } else {
-            $('.clickable').click(function() {
-                $(this).addLightbox();
-            });
-            $('#lightbox-gallery-container').addGallery();
         }
     });
