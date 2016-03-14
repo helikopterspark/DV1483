@@ -63,13 +63,13 @@ em {
             <pre><code>$(document).ready(function() {
     // other code
 
-    $('#lightbox-gallery-container').addLightbox();
+    $('#lightbox-gallery-container').addGallery();
 
     // other code
 });</code></pre>
 
             <p>
-                You also use only the lightbox function on any image:
+                You can also use only the lightbox function on any image:
             </p>
             <pre>
                 <code>$('img').click(function() {
