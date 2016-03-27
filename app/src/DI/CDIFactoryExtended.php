@@ -54,6 +54,20 @@ class CDIFactoryExtended extends \Anax\DI\CDIFactoryDefault
           return $topbar;
       });
 
+      // Shop
+      $this->setShared('ShopController', function() {
+          $shop = new \CR\JSShop\ShopController();
+          $shop->setDI($this);
+          return $shop;
+      });
+
+      // Checkout
+      $this->setShared('CheckoutController', function() {
+          $checkout = new \CR\JSShop\CheckoutController();
+          $checkout->setDI($this);
+          return $checkout;
+      });
+
       }
 
     }

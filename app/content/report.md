@@ -1,4 +1,4 @@
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04)
 
 <a id="Kmom01" class="anchor"></a>Kmom01: Kom igång med JavaScript
 --------------------------------
@@ -115,5 +115,27 @@ Det går även att anropa endast lightbox-funktionen för godtyckliga bilder.
 Jag har gjort en egen sida för pluginen där man kan se hur den fungerar. Jag lade lite extra tid på att styla sidan för att försöka få den att ”se ut som ett proffsjobb”. Där finns även länkar för nedladdning, i form av zip-set eller länk till Github-repot. Slutligen finns en instruktion för hur man gör för att få den att fungera.
 
 [The Lightbox Gallery](plugin)
+
+[Upp](#)
+
+<a id="Kmom04" class="anchor"></a>Kmom04: AJAX och JSON med jQuery
+--------------------------------
+Det här kursmomentet såg till en början ganska lätt ut men det blev hemskt tidsödande ändå. Det tog inte så lång tid att göra övningen men att integrera webbshopen i Anax MVC blev svårare än jag trodde.
+
+##### Vad tycker du om Ajax, hur känns det att jobba med?
+Ajax känns väldigt enkelt att jobba med. Det känns som att man inte behöver ha så djupa kunskaper för att få just den biten att fungera.
+
+##### Vilka är dina erfarenheter av Ajax inför detta kursmoment?
+Jag har inga tidigare erfarenheter av Ajax så det var en ny teknik att sätta sig in i. Jag hade däremot erfarenheter av JSON sedan tidigare i samband med att jag gjorde en iOS-app. Det är ett enkelt format att jobba med eftersom det är läsbart även för en människa. Det gör att det är lätt att tyda och enklare att felsöka när man inte tycker sig få rätt värden.
+
+##### Berätta om din webbshop på din sida, hur gjorde du?
+Jag gjorde först en separat sida för webbshopen och fick den ganska enkelt att fungera. jQuery-skriptet hämtar in data till shopen när sidan laddas. Tanken är att det ska funka att hämta från en databas. Jag ville inte hårdkoda in tabellen med artiklar. Vid klick på köpknappen så läggs artikeln till i sessionen och en uppdaterad varukorg returneras till jQuery-skriptet som sedan uppdaterar sidan.
+
+Utcheckningssidan hämtar in summan från sessionen och visar den. Först tappade jag bort sessionen men det löste sig när jag lade checkout-filen i samma mapp som shop-filen. Om jag fattade rätt från mina efterforskningar på stackoverflow så räknas det som olika subdomäner när filerna ligger i olika mappar. Jag känner att jag inte tillräckligt insatt i den problematiken. Jag använde CForm till att bygga upp formuläret. Det krånglade lite för mig men till slut fick jag valideringen att funka. När betalningen lyckas så tas sessionen bort.
+
+När jag sedan skulle integrera webbshopen i Anax MVC började jag med att bara köra samma skript i bakgrunden. Det fungerade bra för själva webbshopen. För utcheckningen ville jag dock använda CForm som jag gjort tidigare i Anax MVC till formuläret och då blev det problem både med valideringen och sessionen. Därför bestämde jag mig för att bygga upp sidor och sidkontroller med klasser enligt konstens alla regler. Detta tog mer tid än väntat men till slut så ville det sig. Skam den som ger sig. Klassen ShopController bygger upp webbshopen och klassen CheckoutController hanterar utcheckningen. jQuery-skriptet har jag gjort till en plugin, jquery.jsshop.js.
+
+##### Lyckades du göra extrauppgiften och paketera din kod?
+Jag har gjort ett försök till ett separat paket. Det är i princip den fristående övningen jag gjorde. Den kan laddas ner från github [här](https://github.com/helikopterspark/JSShop).
 
 [Upp](#)

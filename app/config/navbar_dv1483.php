@@ -46,9 +46,16 @@
 
      // This is a menu item
      'jqryplugin'  => [
-         'text'  => 'JQUERY PLUGIN',
+         'text'  => 'PLUGIN',
          'url'   => $this->di->get('url')->create('plugin'),
          'title' => 'jQuery plugin'
+     ],
+
+     // This is a menu item
+     'shop'  => [
+         'text'  => 'SHOP',
+         'url'   => $this->di->get('url')->create('shop'),
+         'title' => 'Shop'
      ],
 
      'source' => [

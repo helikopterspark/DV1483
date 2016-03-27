@@ -3,7 +3,7 @@
  *
  */
 
-input[type='submit'], input[type='reset'] {
+input[type='submit'], input[type='reset'], input[type='button'] {
   color:#333;
   font: 80% 'Roboto', sans-serif;
   padding: 7px;
@@ -16,7 +16,7 @@ input[type='submit'], input[type='reset'] {
   transition: all 0.2s ease-in-out;
 }
 
-input[type='submit']:hover, input[type='reset']:hover, {
+input[type='submit']:hover, input[type='reset']:hover, input[type='button']:hover {
 	color: #fff;
   border-color: #666;
   background-color: #666;
@@ -40,4 +40,26 @@ select {
 fieldset {
   background-color: #F5F5F5;
   border-style: none;
+}
+
+.cform-columns-2 {
+    min-width: 900px;
+  .cform-column-1{float:left;width:50%;}
+  .cform-column-2{float:left;width:50%;}
+  input[type='text'] {
+      width: 75%;
+  }
+
+  input[type='submit']:hover {
+      border: 2px solid #DB4400;
+  }
+
+  .cform-buttonbar {clear:both;
+      background-color:#666666;
+      padding:1em;
+      border:1px solid #aaa;
+      text-align: right;
+    p{margin-bottom:0;}
+  }
+
 }

@@ -112,6 +112,28 @@ $app->router->add('plugin', function() use ($app) {
 });
 
 /**
+* Shop
+*
+*/
+$app->router->add('shop', function() use ($app) {
+    $app->dispatcher->forward([
+        'controller' => 'shop',
+        'action' => 'index'
+    ]);
+});
+
+/**
+* checkout
+*
+*/
+$app->router->add('checkout', function() use ($app) {
+    $app->dispatcher->forward([
+        'controller' => 'checkout',
+        'action' => 'index'
+    ]);
+});
+
+/**
 * About page
 *
 */
