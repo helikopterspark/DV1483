@@ -3,7 +3,7 @@
     <p>
         <a href="shop">&#8592; Back to shopping page</a>
     </p>
-    <p id="sum-info">
+    <p id="sum-info" class="info">
         Your credit card will be charged: <span id="checkout-sum"></span>
     </p>
     <div id="payment-message"></div>

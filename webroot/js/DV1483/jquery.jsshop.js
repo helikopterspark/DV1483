@@ -40,6 +40,9 @@
                 $('#cart-content').removeClass().html(data.output);
                 $('#cart-quantity').text(data.quantity);
                 $('#cart-sum').text(data.currency + data.sum);
+                if (data.sum < 1) {
+                    $('#cart-checkout').attr("disabled", "disabled");
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log('Ajax request failed: ' + textStatus + ', ' + errorThrown);
@@ -58,6 +61,7 @@
                     $('#cart-quantity').text(data.quantity);
                     $('#cart-sum').text(data.currency + data.sum);
                     $('#cart-message').clearQueue().stop().text('Cart updated').fadeIn('fast').fadeOut(3000);
+                    $('#cart-checkout').removeAttr("disabled");
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Ajax request failed: ' + textStatus + ', ' + errorThrown);
@@ -77,6 +81,7 @@
                     $('#cart-quantity').text(data.quantity);
                     $('#cart-sum').text(data.currency + data.sum);
                     $('#cart-message').clearQueue().stop().text('Cart cleared').fadeIn('fast').fadeOut(3000);
+                    $('#cart-checkout').attr("disabled", "disabled");
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Ajax request failed: ' + textStatus + ', ' + errorThrown);

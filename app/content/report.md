@@ -138,4 +138,6 @@ När jag sedan skulle integrera webbshopen i Anax MVC började jag med att bara 
 ##### Lyckades du göra extrauppgiften och paketera din kod?
 Jag har gjort ett försök till ett separat paket. Det är i princip den fristående övningen jag gjorde. Den kan laddas ner från github [här](https://github.com/helikopterspark/JSShop).
 
+En fungerande demo finns [här](http://www.student.bth.se/%7Ecarb14/javascript/kmom04/JSShop/shoppingcart/shop-frontpage.php).
+
 [Upp](#)
