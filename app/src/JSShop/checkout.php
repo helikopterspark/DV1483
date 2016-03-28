@@ -9,11 +9,13 @@ $do = isset($_GET['do']) ? $_GET['do'] : null;
 switch ($do) {
     case 'pay':
 
-    include('../checkout/cc_form.php');
+    include('cc_form.php');
     $_POST['pay'] = true;
 
-    $sum = $_SESSION['cart']['sum'];
-    $currency = $_SESSION['cart']['currency'];
+    $sum = null;
+    //$sum = $_SESSION['cart']['sum'];
+    //$currency = $_SESSION['cart']['currency'];
+    $currency = '€';
     $output = "The form is not submitted.";
     $outputClass = 'error';
     $errors = null;
@@ -30,10 +32,12 @@ switch ($do) {
     }
     header('Content-type: application/json');
     echo json_encode(array("output" => $output, "outputClass" => $outputClass, "errors" => $errors, "sum" => $sum, "currency" => $currency));
+    exit;
     break;
 
     default:
     header('Content-type: application/json');
     echo json_encode( ( isset($_SESSION['cart']) ? array("sum" => $_SESSION['cart']['sum'], "currency" => $_SESSION['cart']['currency']) : array('sum'=>0, 'currency' => null) ) );
+    exit;
     break;
 }

@@ -111,7 +111,7 @@
 
         $('#form1').on('submit', function(event) {
             event.preventDefault();
-            //$('#payment-message').removeClass().addClass('info').html('<i class="fa fa-circle-o-notch fa-2x fa-spin"></i> Processing payment, please wait and do NOT reload this page...');
+            $('#payment-message').removeClass().addClass('info').html('<i class="fa fa-circle-o-notch fa-2x fa-spin"></i> Processing payment, please wait and do NOT reload this page...');
 
             $.ajax({
                 type: 'post',
@@ -127,6 +127,10 @@
                         errors += '<p>' + error.label + ' ' + error.message + '</p>';
                     });
                     $('#payment-message').html('<p>' + data.output + '</p>' + errors).removeClass().addClass(data.outputClass);
+                    if (data.outputClass === 'success') {
+                        $('#form1').hide();
+                        $('#sum-info').hide();
+                    }
                     console.log(data.output);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {

@@ -49,7 +49,7 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
 
     public function payAction() {
 
-        $form = new \CR\HTMLForm\CFormCCCheckout();
+        include('cc_form.php');
         $_POST['pay'] = true;
         $status = $form->check();
 
@@ -57,8 +57,7 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
         $sum = $cart['sum'];
         $currency = $cart['currency'];
 
-        //$output = "The form is not submitted.";
-        $output = $status;
+        $output = "The form is not submitted.";
         $outputClass = 'error';
         $errors = null;
 
@@ -70,10 +69,10 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
             $outputClass = 'success';
         } elseif ($status === false) {
             $output = "The form contains errors.";
-            $errors = $this->form->GetValidationErrors();
+            $errors = $form->GetValidationErrors();
         }
 
-        //sleep(3);
+        sleep(2);
         echo json_encode(array("output" => $output, "outputClass" => $outputClass, "errors" => $errors, "sum" => $sum, "currency" => $currency));
         exit;
     }
