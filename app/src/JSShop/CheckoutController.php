@@ -49,13 +49,14 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
 
     public function payAction() {
 
-        include('cc_form.php');
+        include('cc_form.php'); // for the validation to work, Anax seems to lose the other object
         $_POST['pay'] = true;
-        $status = $form->check();
 
         $cart = $this->session->get('cart');
         $sum = $cart['sum'];
         $currency = $cart['currency'];
+
+        $status = $form->check();
 
         $output = "The form is not submitted.";
         $outputClass = 'error';
@@ -65,14 +66,14 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
             $charge = $currency . $sum;
             $sum = 0;
             $this->session->set('cart', null);
-            $output = "The payment transaction was successful. " . $charge . " has been charged from your credit card.";
+            $output = "The payment transaction was successful. You credit card was charged " . $charge;
             $outputClass = 'success';
         } elseif ($status === false) {
             $output = "The form contains errors.";
             $errors = $form->GetValidationErrors();
         }
 
-        sleep(2);
+        sleep(1);
         echo json_encode(array("output" => $output, "outputClass" => $outputClass, "errors" => $errors, "sum" => $sum, "currency" => $currency));
         exit;
     }
