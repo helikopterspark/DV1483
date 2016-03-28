@@ -50,7 +50,6 @@
         $(document).on('click', '.buybutton', function(event) {
             $.ajax({
                 type: 'post',
-                //url: '../app/src/JSShop/shop.php?do=buy',
                 url: 'shop/buy',
                 data: {id: $(this).attr('id')},
                 dataType: 'json',
@@ -70,7 +69,6 @@
         $('#cart-clear').on('click', function(event) {
             $.ajax({
                 type: 'get',
-                //url: '../app/src/JSShop/shop.php?do=clear',
                 url: 'shop/clearcart',
                 data: null,
                 dataType: 'json',
@@ -96,7 +94,6 @@
 
         $.ajax({
             type: 'post',
-            //url: '../app/src/JSShop/checkout.php',
             url: 'checkout/default',
             dataType: 'json',
             success: function(data) {
@@ -111,11 +108,10 @@
 
         $('#form1').on('submit', function(event) {
             event.preventDefault();
-            $('#payment-message').removeClass().addClass('info').html('<i class="fa fa-circle-o-notch fa-2x fa-spin"></i> Processing payment, please wait and do NOT reload this page.');
+            $('#payment-message').removeClass().addClass('info').html('<p><i class="fa fa-circle-o-notch fa-2x fa-spin"></i> Processing payment, please wait and do NOT reload this page.</p>');
 
             $.ajax({
                 type: 'post',
-                //url: '../app/src/JSShop/checkout.php?do=pay',
                 url: 'checkout/pay',
                 data: $('#form1').serialize(),
                 dataType: 'json',
