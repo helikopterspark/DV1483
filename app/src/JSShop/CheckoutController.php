@@ -7,6 +7,7 @@ namespace CR\JSShop;
 *
 */
 
+
 class CheckoutController implements \Anax\DI\IInjectionAware {
 
     use \Anax\DI\TInjectable;
@@ -19,18 +20,20 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
     * @return void
     */
     public function initialize() {
-
+/*
         $this->form = new \CR\HTMLForm\CFormCCCheckout();
         $this->form->setDI($this->di);
+        */
     }
 
     public function indexAction() {
         $this->di->theme->setTitle("The JS Shop Checkout");
-
         //$this->form->check();
 
-        $ccform = $this->form->getHTML(['id' => 'form1', 'columns' => 2]);
-        $this->views->add('dv1483/checkout-page', ['form' => $ccform], 'fullpage');
+        $this->form = new \CR\HTMLForm\CFormCCCheckout();
+        $this->form->setDI($this->di);
+        //$ccform = $this->form->getHTML(['id' => 'form1', 'columns' => 2]);
+        $this->views->add('dv1483/checkout-page', ['form' => $this->form->getHTML(['id' => 'form1', 'columns' => 2])], 'fullpage');
     }
 
     public function defaultAction() {
@@ -46,22 +49,22 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
 
     public function payAction() {
 
+        $form = new \CR\HTMLForm\CFormCCCheckout();
         $_POST['pay'] = true;
+        $status = $form->check();
 
         $cart = $this->session->get('cart');
         $sum = $cart['sum'];
-        $currency = $cart['sum'];
+        $currency = $cart['currency'];
 
-        $output = "The form is not submitted.";
+        //$output = "The form is not submitted.";
+        $output = $status;
         $outputClass = 'error';
         $errors = null;
-
-        $status = $this->form->Check();
 
         if ($status === true) {
             $charge = $currency . $sum;
             $sum = 0;
-            //unset($_SESSION['cart']);
             $this->session->set('cart', null);
             $output = "The payment transaction was successful. " . $charge . " has been charged from your credit card.";
             $outputClass = 'success';
@@ -70,6 +73,7 @@ class CheckoutController implements \Anax\DI\IInjectionAware {
             $errors = $this->form->GetValidationErrors();
         }
 
+        //sleep(3);
         echo json_encode(array("output" => $output, "outputClass" => $outputClass, "errors" => $errors, "sum" => $sum, "currency" => $currency));
         exit;
     }

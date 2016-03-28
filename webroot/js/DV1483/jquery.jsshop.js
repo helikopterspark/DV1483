@@ -93,6 +93,7 @@
     }
 
     $.fn.gotoCheckout = function() {
+
         $.ajax({
             type: 'post',
             //url: '../app/src/JSShop/checkout.php',
@@ -108,8 +109,10 @@
             }
         });
 
-        $('#form-element-pay').on('click', function(event) {
+        $('#form1').on('submit', function(event) {
             event.preventDefault();
+            //$('#payment-message').removeClass().addClass('info').html('<i class="fa fa-circle-o-notch fa-2x fa-spin"></i> Processing payment, please wait and do NOT reload this page...');
+
             $.ajax({
                 type: 'post',
                 //url: '../app/src/JSShop/checkout.php?do=pay',
