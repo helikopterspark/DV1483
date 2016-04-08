@@ -7,7 +7,7 @@ $(document).ready(function(){
     var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
     var step, target, area, top, left, moveIt, somersault;
 
-    if (sPage === 'playground1') {
+    if (sPage === 'kmom01') {
 
         step = 64; // The baddie is 64x64 so move it 64px each time its moved
         target = document.getElementById('b1');

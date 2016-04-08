@@ -309,7 +309,7 @@ $(document).ready(function () {
         }
     }
 
-    if (sPage === 'playground2') {
+    if (sPage === 'kmom02') {
 
         console.log('Drawing gameplan.');
         drawGamePlan(gameArea, gameBlocks);

@@ -26,22 +26,31 @@
      ],
 
      // This is a menu item
-     'playground1'  => [
-         'text'  => 'KMOM01',
-         'url'   => $this->di->get('url')->create('playground1'),
-         'title' => 'Lekplats kmom01'
-     ],
-     // This is a menu item
-     'playground2'  => [
-         'text'  => 'KMOM02',
-         'url'   => $this->di->get('url')->create('playground2'),
-         'title' => 'Lekplats kmom02'
-     ],
-     // This is a menu item
-     'playground3'  => [
-         'text'  => 'KMOM03',
-         'url'   => $this->di->get('url')->create('kmom03'),
-         'title' => 'Lekplats kmom03'
+     'kmom'  => [
+         'text'  => 'PLAYGROUNDS &#x25BE;',
+         'url'   => $this->di->get('url')->create('kmom'),
+         'title' => 'Playground',
+         'mark-if-parent-of' => 'kmom',
+         // kmom submenu
+            'submenu' => [
+                'items' => [
+                    'kmom01' => [
+                        'text'  => 'KMOM01',
+                        'url'   => $this->di->get('url')->create('ckmom/kmom01'),
+                        'title' => 'Kmom01'
+                    ],
+                    'kmom02'  => [
+                        'text'  => 'KMOM02',
+                        'url'   => $this->di->get('url')->create('ckmom/kmom02'),
+                        'title' => 'Kmom02'
+                    ],
+                    'kmom03'  => [
+                        'text'  => 'KMOM03',
+                        'url'   => $this->di->get('url')->create('ckmom/kmom03'),
+                        'title' => 'Kmom03'
+                    ],
+                ],
+            ],
      ],
 
      // This is a menu item
@@ -57,6 +66,22 @@
          'url'   => $this->di->get('url')->create('shop'),
          'title' => 'Shop'
      ],
+
+     // This is a menu item
+     'game'  => [
+         'text'  => 'GAME',
+         'url'   => $this->di->get('url')->create('game'),
+         'title' => 'Game'
+     ],
+
+     // This is a menu item
+     /*
+     'node'  => [
+         'text'  => 'NODE',
+         'url'   => $this->di->get('url')->create('node'),
+         'title' => 'Node'
+     ],
+     */
 
      'source' => [
          'text'  =>'KÄLLKOD',

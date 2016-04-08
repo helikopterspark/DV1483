@@ -1,4 +1,4 @@
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05)
 
 <a id="Kmom01" class="anchor"></a>Kmom01: Kom igång med JavaScript
 --------------------------------
@@ -139,5 +139,23 @@ När jag sedan skulle integrera webbshopen i Anax MVC började jag med att bara 
 Jag har gjort ett försök till ett separat paket. Det är i princip den fristående övningen jag gjorde. Den kan laddas ner från github [här](https://github.com/helikopterspark/JSShop).
 
 En fungerande demo finns [här](http://www.student.bth.se/%7Ecarb14/javascript/kmom04/JSShop/shoppingcart/shop-frontpage.php).
+
+[Upp](#)
+
+<a id="Kmom05" class="anchor"></a>Kmom05: HTML5 och Canvas
+--------------------------------
+Redovisningstext
+
+##### Vilka möjligheter ser du med HTML5 Canvas?
+Redovisningstext
+
+##### Hur avancerad gjorde du din spelfysik (om du överhuvudtaget har någon i ditt spel)?
+Redovisningstext
+
+##### Beskriv och berätta om ditt spel. Förklara hur du använder objekt och prototyper.
+Redovisningstext
+
+##### Gjorde du något på extrauppgiften?
+Redovisningstext
 
 [Upp](#)

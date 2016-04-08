@@ -68,6 +68,13 @@ class CDIFactoryExtended extends \Anax\DI\CDIFactoryDefault
           return $checkout;
       });
 
+      // Playgrounds
+      $this->setShared('CkmomController', function() {
+          $kmom = new \CR\CKmom\CkmomController();
+          $kmom->setDI($this);
+          return $kmom;
+      });
+
       }
 
     }

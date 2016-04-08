@@ -44,46 +44,14 @@ $app->router->add('report', function() use ($app) {
 });
 
 /**
-* Playground 1
+* checkout
 *
 */
-$app->router->add('playground1', function() use ($app) {
-    $app->theme->setTitle("Lekplats Kmom01");
-    $baddie = $app->fileContent->get('baddie.html');
-    $content = $app->fileContent->get('playground1.md');
-    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-
-    $app->views->add('theme/index', ['content' => $baddie], 'main-extended');
-    $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
-
-});
-
-/**
-* Playground 2
-*
-*/
-$app->router->add('playground2', function() use ($app) {
-    $app->theme->setTitle("Lekplats Kmom02");
-    $maze = $app->fileContent->get('kmom02.html');
-    $content = $app->fileContent->get('playground2.md');
-    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-
-    $app->views->add('theme/index', ['content' => $maze], 'main-extended');
-    $app->views->add('theme/index', ['content' => $content], 'sidebar-reduced');
-
-});
-
-/**
-* Kmom03
-*
-*/
-$app->router->add('kmom03', function() use ($app) {
-    $app->theme->setTitle("Lekplats Kmom03");
-    $content = $app->fileContent->get('kmom03.html');
-    //$app->theme->addClassAttributeFor('html', 'dark-theme');
-
-    $app->views->add('theme/index', ['content' => $content], 'fullpage');
-
+$app->router->add('kmom', function() use ($app) {
+    $app->dispatcher->forward([
+        'controller' => 'ckmom',
+        'action' => 'index'
+    ]);
 });
 
 /**
