@@ -46,4 +46,16 @@ class CkmomController implements \Anax\DI\IInjectionAware {
         $this->views->add('theme/index', ['content' => $content], 'fullpage');
     }
 
+    public function helloworldAction() {
+        $content = $this->fileContent->get('helloworld.html');
+        $side = $this->fileContent->get('playground1.md');
+        $side = $this->textFilter->doFilter($side, 'shortcode, markdown');
+        $this->theme->setTitle("Hello World!");
+
+        $this->views->add('theme/index', [
+            'content' => $content,
+        ], 'main-extended');
+        $this->views->add('theme/index', ['content' => $side], 'sidebar-reduced');
+    }
+
 }
