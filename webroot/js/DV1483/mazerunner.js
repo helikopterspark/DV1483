@@ -333,6 +333,7 @@ $(document).ready(function () {
          * Keep track on keys pressed and move Rockford accordingly.
          */
         document.onkeydown = function (event) {
+            event.preventDefault();
             var key;
             key = event.keyCode || event.which;
             switch (key) {

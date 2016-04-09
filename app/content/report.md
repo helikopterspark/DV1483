@@ -23,19 +23,19 @@ Jag följde exemplen i övningen tämligen slaviskt eftersom allt är nytt för 
 
 * [Hello world](helloworld)
 
-* [Mall](../../kmom01/template/index.php)
+* [Mall](../../../kmom01/kmom01/template/index.php)
 
-* [Resize element](../../kmom01/resize-element/index.php)
+* [Resize element](../../../kmom01/kmom01/resize-element/index.php)
 
-* [Move baddie](../../kmom01/move-sprite-css3-transitions/index.php)
+* [Move baddie](../../../kmom01/kmom01/move-sprite-css3-transitions/index.php)
 
-* [Transform  and transition with CSS](../../kmom01/css3-transforms-transitions/index.php)
+* [Transform  and transition with CSS](../../../kmom01/kmom01/css3-transforms-transitions/index.php)
 
-* [Somersault](../../kmom01/somersaultx2/index.php)
+* [Somersault](../../../kmom01/kmom01/somersaultx2/index.php)
 
 I Hello World-exemplet har jag lagt till en `parseInt()` på det inmatade värdet för att jämförelsen av det slumpade numret och den inmatade siffran ska kunna jämföras med `===`. Annars jämförs ett tal med en sträng. Förlagan använder `==` men det gillas ju inte av JSLint.
 
-Jag har lagt till den styrbara baddien på [Lekplatssidan](playground) för att öva lite på att få in JS-kod i ramverket, utöver de fristående exemplen. Övriga exempel finns också länkade från sidan men öppnas utanför ramverket.
+Jag har lagt till den styrbara baddien på [Lekplatssidan](ckmom/kmom01) för att öva lite på att få in JS-kod i ramverket, utöver de fristående exemplen. Övriga exempel finns också länkade från sidan men öppnas utanför ramverket.
 
 ### Baddien och dess konster
 Som sagt, jag följde exemplen så min baddie gör samma sak som dessa. Jag laborerade lite med koden för att förstå hur den funkar. Jag gjorde en egen variant av baddie-spriten i Inkscape.
@@ -43,7 +43,7 @@ Som sagt, jag följde exemplen så min baddie gör samma sak som dessa. Jag labo
 Jag noterade att det finns något som heter keyframes i CSS3 och det kanske är en bättre teknik att använda för animeringar än transform? Det kan ju vara något att sätta sig in i mera under våren.
 
 ### Extrauppgift
-Jag lyckades få baddien att göra en [dubbel saltomortal framåt](../../kmom01/somersaultx2/index.php) genom att kombinera funktioner i fransform. Det krävde lite laborerande att få till en någorlunda jämn volt men jag tycker att den blev bra till slut.
+Jag lyckades få baddien att göra en [dubbel saltomortal framåt](../../../kmom01/kmom01/somersaultx2/index.php) genom att kombinera funktioner i fransform. Det krävde lite laborerande att få till en någorlunda jämn volt men jag tycker att den blev bra till slut.
 
 [Upp](#)
 
@@ -62,25 +62,25 @@ Exempelprogrammen från övningen har jag till största delen försökt att koda
 
 Övriga uppgifter är ganska rättframma. Jag har försökt använda mig av funktioner som skapar och manipulerar DOM-objekt istället för att bara skriva HTML-taggar direkt i strängar, t ex i Numbers-exemplet med uppbyggnaden av tabellen.
 
-* [Typeof](../../kmom02/typeof/index.php)
+* [Typeof](../../../kmom02/kmom02/typeof/index.php)
 
-* [Numbers](../../kmom02/numbers/index.php)
+* [Numbers](../../../kmom02/kmom02/numbers/index.php)
 
-* [Strings](../../kmom02/strings/index.php)
+* [Strings](../../../kmom02/kmom02/strings/index.php)
 
-* [Dice](../../kmom02/dice/index.php)
+* [Dice](../../../kmom02/kmom02/dice/index.php)
 
-* [My ball](../../kmom02/myball/index.php)
+* [My ball](../../../kmom02/kmom02/myball/index.php)
 
-* [Spelplan med array](../../kmom02/boulderdash/index.php)
+* [Spelplan med array](../../../kmom02/kmom02/boulderdash/index.php)
 
-* [Dates](../../kmom02/date/index.php)
+* [Dates](../../../kmom02/kmom02/date/index.php)
 
-* [Regexp](../../kmom02/regexp/index.php)
+* [Regexp](../../../kmom02/kmom02/regexp/index.php)
 
-* [Errors](../../kmom02/errorhandling/index.php)
+* [Errors](../../../kmom02kmom02/errorhandling/index.php)
 
-* [Roulette](../../kmom02/roulette/index.php)
+* [Roulette](../../../kmom02/kmom02/roulette/index.php)
 
 ### Extra arbete med spelvariant
 Jag utgick ifrån exempelkoden och skapade ett litet fungerande spel där man ska leta sig fram igenom en labyrint. Först måste man hämta nyckeln för att låsa upp utgången och sedan ta sig till utgången. På vägen ska man undvika monstren.
@@ -100,7 +100,7 @@ Jag snyggade till spelet genom att laborera lite mera med grafiken. Jag lade til
 --------------------------------
 Jag hade inga som helst erfarenheter av jQuery innan detta kursmoment men efter att ha lekt runt en hel del så känns det väldigt användbart och lite roligare än ren JavaScript. Det går betydligt snabbare att få till fungerande saker.
 
-Det var inga direkta svårigheter med att efterlikna exemplen utan att titta på koden. Kurslitteraturen, jQuery-dokumentationen och stackoverflow gav svar på eventuella frågor. Det enda av exemplen som tog lite mera tid var slideshowen men jag fick till en okej sådan också tycker jag. Mina övningar finns under [Kmom03](kmom03) på min kurssida.
+Det var inga direkta svårigheter med att efterlikna exemplen utan att titta på koden. Kurslitteraturen, jQuery-dokumentationen och stackoverflow gav svar på eventuella frågor. Det enda av exemplen som tog lite mera tid var slideshowen men jag fick till en okej sådan också tycker jag. Mina övningar finns under [Kmom03](ckmom/kmom03) på min kurssida.
 
 Jag tycker som sagt att jQuery känns bra och kommer garanterat att använda mig av det i fortsättningen. Jag kan uppleva att koden blir lite rörig ibland men det kanske inte är jQuerys fel egentligen. Det handlar kanske mera om att jag måste hitta ett smart sätt att strukturera och organisera min JS-kod.
 
