@@ -48,7 +48,6 @@ window.Key = {
 
   onKeydown: function(event) {
     this.pressed[event.keyCode] = true;
-    event.preventDefault();
   },
 
   onKeyup: function(event) {
@@ -361,9 +360,9 @@ window.Asteroids = (function() {
             render();
             window.addEventListener('keydown', function (e) {
                 if (e.keyCode == 32) {
-                    canvas.css("cursor, none");
+                    //canvas.css({"cursor": "none"});
                     e.preventDefault();
-                    Asteroids.startGame();
+                    Asteroids.startGame(canvas);
                 }
             }, false);
         });
@@ -379,6 +378,7 @@ window.Asteroids = (function() {
     };
 
     var resetGame = function() {
+        $('body').unbind('keydown');
         clearTimeout(scoreTimeout);
         soundThrust.pause();
         soundBackground.pause();
@@ -396,8 +396,12 @@ window.Asteroids = (function() {
         player = new Player(new Vector(150, canvasHeight / 2));
     }
 
-    var startGame = function() {
+    var startGame = function(canvas) {
         if (!playGame && !goScreen) {
+            $('body').bind('keydown', function(e) {
+                e.preventDefault(e);
+            });
+            $('body').css('cursor', 'none');
             // Reset stats
             uiScore.html("0");
             uiStats.show();
@@ -454,14 +458,12 @@ window.Asteroids = (function() {
         goScreen = true;
         soundThrust.pause();
         soundBackground.pause();
-        window.removeEventListener('keydown', function (e) {
-            if (Key.isDown(Key.RIGHT, Key.D)) Asteroids.startGame();
-        }, false);
 
         playGame = false;
         clearTimeout(scoreTimeout);
         uiStats.hide();
         uiComplete.show();
+        $('body').unbind('keydown');
         soundDeath.currentTime = 0;
         soundDeath.play();
     }
