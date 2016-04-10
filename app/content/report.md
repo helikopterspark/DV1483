@@ -144,18 +144,30 @@ En fungerande demo finns [här](http://www.student.bth.se/%7Ecarb14/javascript/k
 
 <a id="Kmom05" class="anchor"></a>Kmom05: HTML5 och Canvas
 --------------------------------
-Redovisningstext
+Detta var ett intressant kursmoment med ett ämne som egentligen kunde ha fyllt en hel kurs. Det var mycket att läsa, även om det var en hel del upprepning i de olika texterna. Sedan hade jag behövt en kurs i linjär algebra också. Det var längesen jag gick i gymnasiet och räknade naturvetarmatte. Det var i alla fall en bra introduktion till vad som går att göra i HTML5 Canvas.
 
 ##### Vilka möjligheter ser du med HTML5 Canvas?
-Redovisningstext
+Det verkar finnas stora möjligheter för att skapa rörlig grafik på webbsidor. I takt med att datorerna får bättre prestanda och att webbläsarna blir bättre så kan man göra mer och mer avancerade spel och animeringar. Video och mer interaktiva webbapplikationer är andra möjligheter.
 
 ##### Hur avancerad gjorde du din spelfysik (om du överhuvudtaget har någon i ditt spel)?
-Redovisningstext
+Jag utgick ifrån exempelkoden och lade in vektorer och krafter som objekt. Rymdskeppet i mitt spel använder acceleration och inbromsning. Jag har inte byggt ut fysikmodellen i så stor utsträckning pga att det hade behövts mer tid för att kunna sätta sig in i matematiken. Men jag fick till ett lite mjukare rörelsemönster på rymdskeppet. När man gasar framåt så ökar farten gradvis. Ju högre fart man har desto snabbare förflyttar man sig i Y-led också. Gasar man inte så saktar man in och börjar snart tryckas bakåt av motståndet. Det kan man även utnyttja till sin fördel. Det går inte att backa men genom att släppa på gasen så kan man förflytta sig sakta bakåt.
 
 ##### Beskriv och berätta om ditt spel. Förklara hur du använder objekt och prototyper.
-Redovisningstext
+Jag har gjort ett litet sidoscrollande spel där man ska manövrera sig igenom en asteroidsvärm. Man styr med piltangenterna, höger, uppåt och nedåt. Antalet asteroider ökar gradvis var femte sekund via en timer-funktion. Det är en utmaning att överleva över en minut. Spelet ligger [här](game).
+
+Jag utgick från en förlaga i boken Foundation HTML5 for Games and Entertainment av Rob Hawkes. Förlagan var dock inte uppbyggd med moduler och prototyper och hade ingen fysikmodell att tala om.
+
+Jag lade till objekt för Vector och Forces enligt övningen, liksom koden för tangentavkänning. Det blev lite problem att få till ````preventDefault()```` och att gömma muspekaren, framförallt i Firefox, men det ser ut att fungera nu när jag testar.
+
+För asteroiderna skapade jag objektet Asteroid och lade dess funktioner i prototypen. Spelet skapar en array med asteroid-objekt. Varje asteroid får en slumpartad storlek, placering och hastighet. Sedan ritas asteroiderna upp vid sidan av den synliga canvas-ytan för att sedan förflyttas in från höger för varje frame. De olika storlekarna och hastigheterna ger en viss 3D-känsla även om alla ligger i samma plan och således går att krocka med. En funktion för kollisionsdetektering med rymdskeppet finns också. Den anropas för varje asteroid varje gång gameloopen körs.
+
+För att öka känslan av sidoförflyttning har jag lagt in en scrollande bakgrundsbild. Lyckas man överleva så pass länge att man kommer till slutet på bilden (1920 pixlar bred) så loopas den.
+
+Rymdskeppet är ett Player-objekt som skapas ungefär som objektet i övningen. Det får en vektor för positionen och några krafter. Det har dock lite enklare förflyttning. Alltför avancerad fysik i förflyttningen hade nog gjort spelet för alltför svårt när det börjar bli många asteroider. Alla funktioner för Player ligger i prototypen.
+
+Prestanda varierar lite mellan olika webbläsare. Bäst fungerar det i Chrome och sämst i Safari på min Mac, Firefox däremellan. I Safari hackar grafiken till lite och ljudet laggar. Chrome verkar vara bättre optimerat för HTML5 Canvas.
 
 ##### Gjorde du något på extrauppgiften?
-Redovisningstext
+Jag har lagt till ljud. Det var enkelt jämfört med övriga kodandet. Det finns tre ljud där varje ljud finns i en ogg-variant och en mp3-variant. Ett ljud för bakgrundsmusik, ett för raketmotorn och ett för smällen vid game over. Bakgrundsmusiken loopas liksom raketljudet. Raketljudet börjar spelas när man gasar och pausas när man släpper tangenten. Ljuden hittade jag på [www.freesound.org](http://www.freesound.org/) och de är gratis att använda.
 
 [Upp](#)

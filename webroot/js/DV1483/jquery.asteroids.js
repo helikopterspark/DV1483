@@ -464,6 +464,7 @@ window.Asteroids = (function() {
         uiStats.hide();
         uiComplete.show();
         $('body').unbind('keydown');
+        $('body').css('cursor', '');
         soundDeath.currentTime = 0;
         soundDeath.play();
     }
