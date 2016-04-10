@@ -78,7 +78,7 @@ Exempelprogrammen från övningen har jag till största delen försökt att koda
 
 * [Regexp](../../../kmom02/kmom02/regexp/index.php)
 
-* [Errors](../../../kmom02kmom02/errorhandling/index.php)
+* [Errors](../../../kmom02/kmom02/errorhandling/index.php)
 
 * [Roulette](../../../kmom02/kmom02/roulette/index.php)
 

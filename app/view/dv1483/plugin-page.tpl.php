@@ -34,8 +34,8 @@ em {
     Click on the thumbnails to view a larger version. Click the large image to view it in a lightbox. Click on the lightbox image to close it or press the Escape key.
 </p>
 <p>
-    <a href="https://github.com/helikopterspark/thelightboxgallery/archive/master.zip">Download plugin as zip-set</a><br />
-    <a href="https://github.com/helikopterspark/thelightboxgallery">Download from Github</a>
+    <a class="dark-link" href="https://github.com/helikopterspark/thelightboxgallery/archive/master.zip">Download plugin as zip-set</a><br />
+    <a class="dark-link" href="https://github.com/helikopterspark/thelightboxgallery">Download from Github</a>
 </p>
 
 <h4 class="prgh">Usage</h4>

@@ -20,4 +20,8 @@ $(document).ready(function(){
         $(this).gotoCheckout();
     }
 
+    if (sPage === 'game') {
+        $(this).asteroids();
+    }
+
 });

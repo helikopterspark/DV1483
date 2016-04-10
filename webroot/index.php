@@ -40,7 +40,6 @@ $app->router->add('report', function() use ($app) {
     $byline = $app->fileContent->get('byline.html');
     $pagecontent = $content . $byline;
     $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
-
 });
 
 /**
@@ -99,6 +98,17 @@ $app->router->add('checkout', function() use ($app) {
         'controller' => 'checkout',
         'action' => 'index'
     ]);
+});
+
+/**
+* Game
+*
+*/
+$app->router->add('game', function() use ($app) {
+    $app->theme->setTitle("The Asteroids Near Uranus");
+    $app->theme->addClassAttributeFor('html', 'dark-theme');
+    $content = $app->fileContent->get('asteroids.html');
+    $app->views->add('theme/index', ['content' => $content], 'fullpage');
 });
 
 /**

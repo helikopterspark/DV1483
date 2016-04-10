@@ -1,0 +1,49 @@
+<div id="aflash">
+
+<div id="game">
+    <div id="gameUI">
+        <div id="gameIntro">
+            <h1 id="gameHeading1">The Asteroids Near Uranus</h1>
+            <p>
+                Click play and then press SPACE to start.
+            </p>
+            <p>
+                <a id="gamePlay" class="button" href="">Play</a>
+            </p>
+        </div>
+        <div id="gameStats">
+            <p>
+                Time: <span class="gameScore"></span> seconds
+            </p>
+            <p>
+                <a class="gameReset" href="">Reset</a>
+            </p>
+        </div>
+        <div id="gameComplete">
+            <h1 id="gameHeading2">GAME OVER!</h1>
+            <p>
+                You survived for <span class="gameScore"></span> seconds.
+            </p>
+            <p>
+                <a class="gameReset button" href="">Play again</a>
+            </p>
+        </div>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600">Game over. Your browser does not support HTML5.</canvas>
+    <audio id="gameSoundBackground" loop>
+        <!-- http://www.freesound.org/people/tyops/sounds/264873/ -->
+        <source src="../webroot/sounds/264873__tyops__mystery-adventure-theme.ogg" type="audio/ogg"/>
+        <source src="../webroot/sounds/264873__tyops__mystery-adventure-theme.mp3" type="audio/mpeg"/>
+    </audio>
+    <audio id="gameSoundThrust" preload="auto" loop>
+        <!-- http://www.freesound.org/people/nathanshadow/sounds/22455/ -->
+        <source src="../webroot/sounds/22455__nathanshadow__thruster-level-ii.ogg" type="audio/ogg"/>
+        <source src="../webroot/sounds/22455__nathanshadow__thruster-level-ii.mp3" type="audio/mpeg"/>
+    </audio>
+    <audio id="gameSoundDeath" preload="auto">
+        <!-- http://www.freesound.org/people/HerbertBoland/sounds/33637/ -->
+        <source src="../webroot/sounds/33637__herbertboland__cinematicboomnorm.ogg" type="audio/ogg"/>
+        <source src="../webroot/sounds/33637__herbertboland__cinematicboomnorm.mp3" type="audio/mpeg"/>
+    </audio>
+</div>
+</div>
