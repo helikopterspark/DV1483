@@ -140,11 +140,12 @@ window.Forces.addDamping('drag', 0.47);
 window.Forces.addWind('wind', new Vector(0.5, 0));
 
 // Asteroid class
-var Asteroid = function(canvasWidth, canvasHeight) {
+var Asteroid = function(canvasWidth, canvasHeight, image) {
     this.radius = 5 + (Math.random() * 10);
     this.x = canvasWidth + this.radius + Math.floor(Math.random() * canvasWidth);
     this.y = Math.floor(Math.random() * canvasHeight);
     this.vX = -5 - (Math.random() * 5);
+    this.image = image || null;
 }
 
 Asteroid.prototype = {
@@ -159,11 +160,14 @@ Asteroid.prototype = {
             this.vX = -5 - (Math.random() * 5);
         };
 
-        //ctx.fillStyle = "#CB9F83";
+        /*
+        ctx.fillStyle = "#CB9F83";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
         ctx.closePath();
         ctx.fill();
+        */
+        ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius*2, this.radius*2);
     },
 
     detectCollision: function(plr) {
@@ -179,7 +183,7 @@ Asteroid.prototype = {
 }
 
 // Player class
-var Player = function(position, velocity, speed, direction, accelerateForce, breakForce, dampForce) {
+var Player = function(position, image, velocity, speed, direction, accelerateForce, breakForce, dampForce) {
     this.width = 24;
     this.height = 24;
     this.halfWidth = this.width / 2;
@@ -192,6 +196,7 @@ var Player = function(position, velocity, speed, direction, accelerateForce, bre
     this.accelerateForce = accelerateForce || Forces.createAcceleration(new Vector(270, 270));
     this.breakForce = breakForce || Forces.createDamping(0.97);
     this.dampForce = dampForce || Forces.createDamping(0.999);
+    this.image = image || null;
 
     this.moveRight = false;
 
@@ -208,6 +213,7 @@ Player.prototype = {
 
         this.stayInArea(canvasWidth, canvasHeight);
 
+        /*
         ctx.fillStyle = "#AFAFB1";
         ctx.beginPath();
         ctx.moveTo(this.position.x + this.halfWidth, this.position.y);
@@ -215,6 +221,17 @@ Player.prototype = {
         ctx.lineTo(this.position.x - this.halfWidth, this.position.y + this.halfHeight);
         ctx.closePath();
         ctx.fill();
+        */
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(this.position.x + this.halfWidth, this.position.y);
+        ctx.lineTo(this.position.x - this.halfWidth, this.position.y - this.halfHeight);
+        ctx.lineTo(this.position.x - this.halfWidth, this.position.y + this.halfHeight);
+        ctx.clip();
+        ctx.closePath();
+        ctx.fill();
+        ctx.drawImage(this.image, this.position.x - this.halfWidth, this.position.y - this.halfHeight);
+        ctx.restore();
 
         this.moveRight = false;
     },
@@ -318,6 +335,12 @@ window.Asteroids = (function() {
     var bkg = new Image();
     bkg.src = '../webroot/img/asteroids/Distant-Galaxy-Stars-Wallpapers-1920x600.jpg';
 
+    var spaceshipImage = new Image();
+    spaceshipImage.src = '../webroot/img/asteroids/shipsurface.png';
+
+    var asteroidImage = new Image();
+    asteroidImage.src = '../webroot/img/asteroids/asteroid2.png';
+
     // Game settings
     var playGame = false;
     var goScreen;
@@ -360,7 +383,6 @@ window.Asteroids = (function() {
             render();
             window.addEventListener('keydown', function (e) {
                 if (e.keyCode == 32) {
-                    //canvas.css({"cursor": "none"});
                     e.preventDefault();
                     Asteroids.startGame(canvas);
                 }
@@ -390,10 +412,10 @@ window.Asteroids = (function() {
         asteroids = new Array();
         numAsteroids = 5;
         for (var i = 0; i < numAsteroids; i++) {
-            asteroids.push(new Asteroid(canvasWidth, canvasHeight));
+            asteroids.push(new Asteroid(canvasWidth, canvasHeight, asteroidImage));
         };
 
-        player = new Player(new Vector(150, canvasHeight / 2));
+        player = new Player(new Vector(150, canvasHeight / 2), spaceshipImage);
     }
 
     var startGame = function(canvas) {
@@ -476,7 +498,7 @@ window.Asteroids = (function() {
 
         // Increase number of asteroids on screen
         while (asteroids.length < numAsteroids) {
-            asteroids.push(new Asteroid(canvasWidth, canvasHeight));
+            asteroids.push(new Asteroid(canvasWidth, canvasHeight, asteroidImage));
         }
 
         if (playGame) {
