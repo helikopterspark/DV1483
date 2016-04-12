@@ -146,6 +146,11 @@ var Asteroid = function(canvasWidth, canvasHeight, image) {
     this.y = Math.floor(Math.random() * canvasHeight);
     this.vX = -5 - (Math.random() * 5);
     this.image = image || null;
+
+    this.frameIndex = 0;
+    this.tickCount = 0;
+    this.ticksPerFrame = Math.abs(this.vX) / 2;
+    this.numberOfFrames = 19;
 }
 
 Asteroid.prototype = {
@@ -159,16 +164,34 @@ Asteroid.prototype = {
             this.x = canvasWidth + this.radius;
             this.y = Math.floor(Math.random( ) * canvasHeight);
             this.vX = -5 - (Math.random() * 5);
+            this.ticksPerFrame = Math.abs(this.vX) / 2;
         };
 
-        /*
-        ctx.fillStyle = "#CB9F83";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-        ctx.closePath();
-        ctx.fill();
-        */
-        ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, (this.radius*2)*margin, (this.radius*2)*margin);
+        ctx.drawImage(
+            this.image,
+            this.frameIndex * this.image.width / this.numberOfFrames,
+            0,
+            this.image.width / this.numberOfFrames,
+            this.image.height,
+            this.x - this.radius,
+            this.y - this.radius,
+            (this.radius*2)*margin,
+            (this.radius*2)*margin);
+    },
+
+    update: function() {
+        this.tickCount += 1;
+
+        if (this.tickCount > this.ticksPerFrame) {
+            this.tickCount = 0;
+            // If the current frame index is in range
+            if (this.frameIndex < this.numberOfFrames - 1) {
+                // Go to the next frame
+                this.frameIndex += 1;
+            } else {
+                this.frameIndex = 0;
+            }
+        }
     },
 
     detectCollision: function(plr) {
@@ -214,15 +237,6 @@ Player.prototype = {
 
         this.stayInArea(canvasWidth, canvasHeight);
 
-        /*
-        ctx.fillStyle = "#AFAFB1";
-        ctx.beginPath();
-        ctx.moveTo(this.position.x + this.halfWidth, this.position.y);
-        ctx.lineTo(this.position.x - this.halfWidth, this.position.y - this.halfHeight);
-        ctx.lineTo(this.position.x - this.halfWidth, this.position.y + this.halfHeight);
-        ctx.closePath();
-        ctx.fill();
-        */
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(this.position.x + this.halfWidth, this.position.y);
@@ -345,7 +359,8 @@ window.Asteroids = (function() {
 
     // http://freegameassets.blogspot.se/2013/09/asteroids-and-planets-if-you-needed-to.html
     var asteroidImage = new Image();
-    asteroidImage.src = '../webroot/img/asteroids/asteroid2.png';
+    //asteroidImage.src = '../webroot/img/asteroids/asteroid2.png';
+    asteroidImage.src = '../webroot/img/asteroids/asteroid_sprite.png';
 
     // http://freegameassets.blogspot.se/search?q=explosion
     var explosionImage = new Image();
@@ -384,8 +399,8 @@ window.Asteroids = (function() {
         canvasHeight = canvas.height();
         uiStats.hide();
         uiComplete.hide();
-
         resetGame();
+        render();
 
         uiPlay.click(function(e) {
             e.preventDefault();
@@ -464,7 +479,6 @@ window.Asteroids = (function() {
         bkgX -= bkgDX;
 
         // Draw asteroids
-        context.fillStyle = "#CB9F83";
         for (var i = 0; i < asteroids.length; i++) {
             asteroids[i].draw(context, canvasWidth, canvasHeight);
         }
@@ -529,6 +543,7 @@ window.Asteroids = (function() {
             soundThrust.pause();
         };
         for (var i = 0; i < asteroids.length; i++) {
+            asteroids[i].update();
             if (asteroids[i].detectCollision(player)) {
                 gameover();
                 break;
