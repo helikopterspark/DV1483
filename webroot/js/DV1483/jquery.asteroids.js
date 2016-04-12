@@ -238,7 +238,7 @@ Player.prototype = {
     },
 
     drawExplosion: function(ctx, image) {
-        ctx.drawImage(image, this.position.x - this.halfWidth, this.position.y - this.halfHeight);
+        ctx.drawImage(image, this.position.x - this.halfWidth*2, this.position.y - this.halfHeight*2);
     },
 
     drawFlame: function(ctx) {
@@ -349,7 +349,7 @@ window.Asteroids = (function() {
 
     // http://freegameassets.blogspot.se/search?q=explosion
     var explosionImage = new Image();
-    explosionImage.src = '../webroot/img/asteroids/explosion1.png';
+    explosionImage.src = '../webroot/img/asteroids/explosion2.png';
 
     // Game settings
     var playGame = false;
