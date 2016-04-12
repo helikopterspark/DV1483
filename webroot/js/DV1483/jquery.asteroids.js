@@ -40,7 +40,7 @@ window.Key = {
   A:      65,
   S:      83,
   D:      68,
-  w:      87,
+  W:      87,
 
   isDown: function(keyCode, keyCode1) {
     return this.pressed[keyCode] || this.pressed[keyCode1];
@@ -151,6 +151,7 @@ var Asteroid = function(canvasWidth, canvasHeight, image) {
 Asteroid.prototype = {
 
     draw: function(ctx, canvasWidth, canvasHeight) {
+        var margin = 1.16;  // Compensate for margin in image
         this.x += this.vX;
 
         if (this.x + this.radius < 0) {
@@ -167,7 +168,7 @@ Asteroid.prototype = {
         ctx.closePath();
         ctx.fill();
         */
-        ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius*2, this.radius*2);
+        ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, (this.radius*2)*margin, (this.radius*2)*margin);
     },
 
     detectCollision: function(plr) {
@@ -234,6 +235,10 @@ Player.prototype = {
         ctx.restore();
 
         this.moveRight = false;
+    },
+
+    drawExplosion: function(ctx, image) {
+        ctx.drawImage(image, this.position.x - this.halfWidth, this.position.y - this.halfHeight);
     },
 
     drawFlame: function(ctx) {
@@ -338,8 +343,13 @@ window.Asteroids = (function() {
     var spaceshipImage = new Image();
     spaceshipImage.src = '../webroot/img/asteroids/shipsurface.png';
 
+    // http://freegameassets.blogspot.se/2013/09/asteroids-and-planets-if-you-needed-to.html
     var asteroidImage = new Image();
     asteroidImage.src = '../webroot/img/asteroids/asteroid2.png';
+
+    // http://freegameassets.blogspot.se/search?q=explosion
+    var explosionImage = new Image();
+    explosionImage.src = '../webroot/img/asteroids/explosion1.png';
 
     // Game settings
     var playGame = false;
@@ -460,7 +470,11 @@ window.Asteroids = (function() {
         }
 
         // Draw player
-        player.draw(context, canvasWidth, canvasHeight);
+        if (!goScreen) {
+            player.draw(context, canvasWidth, canvasHeight);
+        } else {
+            player.drawExplosion(context, explosionImage);
+        }
     }
 
     var timer = function() {
