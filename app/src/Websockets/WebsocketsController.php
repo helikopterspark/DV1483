@@ -19,7 +19,7 @@ class WebsocketsController implements \Anax\DI\IInjectionAware {
     }
 
     public function echobroadcastAction() {
-        $this->di->theme->setTitle("Echo client");
+        $this->di->theme->setTitle("Echo/broadcast client");
         $content = $this->fileContent->get('client.html');
         $side = $this->fileContent->get('client-side.md');
         $side = $this->textFilter->doFilter($side, 'shortcode, markdown');

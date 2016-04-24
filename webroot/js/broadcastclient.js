@@ -68,13 +68,16 @@ $(document).ready(function () {
                 url = 'ws://nodejs1.student.bth.se:8078';
                 break;
             case '2':
+                url = 'ws://nodejs2.student.bth.se:8078';
+                break;
+            case '3':
                 url = 'ws://dbwebb.se:1337';
                 break;
                 /*
-            case '3':
+            case '4':
                 url = 'ws://127.0.0.1:8078';
                 break;
-            case '4':
+            case '5':
                 url = 'ws://10.0.1.40:8078';
                 break;
                 */

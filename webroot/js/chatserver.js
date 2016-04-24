@@ -28,7 +28,7 @@ wsServer = new WebSocketServer({
 
 // Always check and explicitly allow the origin
 function originIsAllowed(origin) {
-    if (origin === 'http://dbwebb.se' || origin === 'http://localhost' || origin === 'http://127.0.0.1:8080' || origin === 'http://www.student.bth.se/~carb14/') {
+    if (origin === 'http://dbwebb.se' || origin === 'http://localhost' || origin === 'http://127.0.0.1:8080' || origin === 'http://www.student.bth.se') {
         return true;
     } else {
         return false;
@@ -88,17 +88,33 @@ function acceptConnectionAsBroadcast(request) {
         // login message
         } else if (rec_msg.type === 'name') {
             if (rec_msg.name.length > 0) {
-                connection.name = rec_msg.name;
+                connection.name = htmlEntities(rec_msg.name);
             } else {
                 connection.name = 'Guest' + connection.broadcastId;
             }
 
-            users[connection.broadcastId] = connection.name;
+            users[connection.broadcastId] = htmlEntities(connection.name);
 
             send_msg = JSON.stringify({
                 type: 'message',
                 name: htmlEntities(connection.name),
                 text: 'has joined the chat',
+                user_list: users
+            });
+
+            for (var i = 0; i < broadcastTo.length; i++) {
+                if (broadcastTo[i]) {
+                    clients++;
+                    broadcastTo[i].sendUTF(send_msg);
+                }
+            }
+        } else if (rec_msg.type === 'changename') {
+            users[connection.broadcastId] = htmlEntities(rec_msg.newname);
+            connection.name = htmlEntities(rec_msg.newname);
+            send_msg = JSON.stringify({
+                type: 'message',
+                name: htmlEntities(rec_msg.name),
+                text: 'is now known as ' + htmlEntities(rec_msg.newname),
                 user_list: users
             });
 

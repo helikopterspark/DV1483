@@ -174,21 +174,33 @@ Jag har lagt till ljud. Det var enkelt jämfört med övriga kodandet. Det finns
 
 <a id="Kmom06" class="anchor"></a>Kmom06: HTML5 och Websockets
 ----------------------------------------
-Redovisningstext
+Sista kursmomentet innan projektet är avklarat och det var väldigt intressant och roligt att sätta sig in i server-programmering.
 
 ##### Vilka möjligheter ser du med HTML5 Websockets?
-Redovisningstext
+Jag ser fler möjligheter än att bara skicka textmeddelanden. Multiplayer-spel i HTML5 Canvas till exempel. Tack vare bra prestanda så borde det passa de flesta realtidstillämpningar man kan tänka sig. Jag är nyfiken på om det till och med funkar med snabbare actionspel. Jag har inte riktigt bestämt mig för vad jag ska göra som projekt än men en tanke just nu är att göra någon form av multiplayer-spel.
 
 ##### Vad tycker du om Node.js och hur känns det att programmera i det?
-Redovisningstext
+Node.js verkar enkelt och bra, det var betydligt lättare att programmera en server än vad jag hade förväntat mig. Det går förhållandevis snabbt att skriva en enkel server och det har varit ett strulfritt kursmoment.
 
 ##### Beskriv hur du löste echo-servern och broadcast-servern.
-Redovisningstext
+Jag utgick ifrån koden i övningen. Jag valde att kombinera echo-servern och broadcast-servern i samma server. Beroende på vilket protokoll som anges i anslutningen så blir klienten ansluten till echo eller broadcast. I övrigt händer inget avancerat. Via ett listval kan man ansluta till mina servrar på nodejs1 eller nodejs2, samt Mikaels server på dbwebb.se.
 
 ##### Beskriv och berätta om din chatt. Förklara hur du byggde din chatt-server och förklara protokollet.
-Redovisningstext
+Jag utgick ifrån broadcast-servern i övningen och byggde ut den med fler meddelandetyper för chattfunktioner. Meddelanden skickas i JSON-format för att kunna inkludera mer data än bara själva textmeddelandet. En array ````broadcastTo```` håller reda på alla anslutningar. Arrayen ````users```` håller reda på namnen i deltagarlistan.
+
+Vid anslutning skickas ett meddelande av typen ````name```` med nickname inkluderat och inträdet i chatten annonseras till alla deltagare.
+
+När ett meddelande av typen ````message```` skickas så sänds det ut till alla deltagare såvida inte en specifik deltagare är angiven i meddelandet. Då skickas det som privat meddelande endast till denne.
+
+Vid namnbyte skickas ett meddelande av typen ````namechange```` vilket innehåller det gamla och det nya namnet. Namnet på ````connection````och namnet i deltagarlistan uppdateras därefter och namnbytet annonseras i chatten.
+
+När en deltagare kopplar ned skickas ett meddelande till alla kvarvarande deltagare.
 
 ##### Gjorde du något på extrauppgiften?
-Redovisningstext
+Jag lade till några extra funktioner. Jag har inte satt mig in i IRC-protokollet utan gjorde extrafunktionerna efter eget huvud.
+
+Det går att byta namn via en prompt. Namnbytet annonseras i chatten och deltagarlistan uppdateras.
+
+Det är också möjligt att skicka privata meddelanden. Man markerar bara en deltagare i listan och sedan skickas meddelanden endast till denne. Privat meddelande får gul bakgrund i chattfönstret. Jag hade lite problem med att få till avmarkering av vald deltagare, för att kunna skicka till alla. Jag löste det med att lägga till ett osynligt div-element under listan som man kan klicka på för att avmarkera.
 
 [Upp](#)

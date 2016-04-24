@@ -22,7 +22,7 @@ wsServer = new WebSocketServer({
 
 // Always check and explicitly allow the origin
 function originIsAllowed(origin) {
-    if (origin === 'http://dbwebb.se' || origin === 'http://localhost' || origin === 'http://127.0.0.1:8080' || origin === 'http://www.student.bth.se/~carb14/') {
+    if (origin === 'http://dbwebb.se' || origin === 'http://localhost' || origin === 'http://127.0.0.1:8080' || origin === 'http://www.student.bth.se') {
         return true;
     } else {
         return false;
