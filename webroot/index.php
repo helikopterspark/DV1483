@@ -43,7 +43,7 @@ $app->router->add('report', function() use ($app) {
 });
 
 /**
-* checkout
+* Kmom playgrounds
 *
 */
 $app->router->add('kmom', function() use ($app) {
@@ -109,6 +109,17 @@ $app->router->add('game', function() use ($app) {
     $app->theme->addClassAttributeFor('html', 'dark-theme');
     $content = $app->fileContent->get('asteroids.html');
     $app->views->add('theme/index', ['content' => $content], 'fullpage');
+});
+
+/**
+* Websockets
+*
+*/
+$app->router->add('websockets', function() use ($app) {
+    $app->dispatcher->forward([
+        'controller' => 'websockets',
+        'action' => 'index'
+    ]);
 });
 
 /**

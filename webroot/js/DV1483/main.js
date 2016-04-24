@@ -24,4 +24,22 @@ $(document).ready(function(){
         $(this).asteroids();
     }
 
+    if (sPage === 'chat') {
+        $.getScript( "../js/chatclient.js", function( data, textStatus, jqxhr ) {
+            //console.log( data ); // Data returned
+            console.log( textStatus ); // Success
+            console.log( jqxhr.status ); // 200
+            console.log( "Loading chatclient.js." );
+        });
+    }
+
+    if (sPage === 'echobroadcast') {
+        $.getScript( "../js/broadcastclient.js", function( data, textStatus, jqxhr ) {
+            //console.log( data ); // Data returned
+            console.log( textStatus ); // Success
+            console.log( jqxhr.status ); // 200
+            console.log( "Loading broadcastclient.js." );
+        });
+    }
+
 });

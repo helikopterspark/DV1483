@@ -1,0 +1,31 @@
+<h1>Client for chat server</h1>
+
+<form id="form1">
+    <fieldset>
+        <p>
+            <div id="message_wd">
+                <div id="messages_list">
+                    <ul id="messages_list_lines">
+
+                    </ul>
+                </div>
+                <div id="user_list">
+                    <select id="user_list_lines" size="2"></select>
+                    <div id="user_list_app"></div>
+                </div>
+            </div>
+        </p>
+        <p>
+            <input id="message" type="text" placeholder="Type your message"/>
+            <input id="send" type="button" value="Send message" />
+        </p>
+
+        <p>
+            <input id="loggedin" type="text" hidden disabled  />
+            <input id="nick" type="text" placeholder="Enter your nickname and click Join" />
+            <input id="connect" type="button" value="Join" />
+            <input id="close" type="button" value="Leave" hidden />
+        </p>
+        <a href='../source?path=webroot/js/chatserver.js'>Källkod</a>
+    </fieldset>
+</form>

@@ -27,7 +27,7 @@
 
      // This is a menu item
      'kmom'  => [
-         'text'  => 'PLAYGROUNDS &#x25BE;',
+         'text'  => 'PLAYGROUND &#x25BE;',
          'url'   => $this->di->get('url')->create('kmom'),
          'title' => 'Playground',
          'mark-if-parent-of' => 'kmom',
@@ -75,16 +75,25 @@
      ],
 
      // This is a menu item
-     /*
-     'node'  => [
-         'text'  => 'NODE',
-         'url'   => $this->di->get('url')->create('node'),
-         'title' => 'Node'
+     'websockets'  => [
+         'text'  => 'CHAT &#x25BE;',
+         'url'   => $this->di->get('url')->create('websockets/chat'),
+         'title' => 'Chat',
+         'mark-if-parent-of' => 'websockets',
+         // kmom submenu
+            'submenu' => [
+                'items' => [
+                    'echo' => [
+                        'text'  => 'ECHO/BROADCAST',
+                        'url'   => $this->di->get('url')->create('websockets/echobroadcast'),
+                        'title' => 'Echo'
+                    ],
+                ],
+            ],
      ],
-     */
 
      'source' => [
-         'text'  =>'KÄLLKOD',
+         'text'  =>'SOURCE',
          'url'   => $this->di->get('url')->create('source'),
          'title' => 'Källkod'
      ],

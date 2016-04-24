@@ -1,4 +1,4 @@
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06)
 
 <a id="Kmom01" class="anchor"></a>Kmom01: Kom igång med JavaScript
 --------------------------------
@@ -169,5 +169,26 @@ Prestanda varierar lite mellan olika webbläsare. Bäst fungerar det i Chrome oc
 
 ##### Gjorde du något på extrauppgiften?
 Jag har lagt till ljud. Det var enkelt jämfört med övriga kodandet. Det finns tre ljud där varje ljud finns i en ogg-variant och en mp3-variant. Ett ljud för bakgrundsmusik, ett för raketmotorn och ett för smällen vid game over. Bakgrundsmusiken loopas liksom raketljudet. Raketljudet börjar spelas när man gasar och pausas när man släpper tangenten. Ljuden hittade jag på [www.freesound.org](http://www.freesound.org/) och de är gratis att använda.
+
+[Upp](#)
+
+<a id="Kmom06" class="anchor"></a>Kmom06: HTML5 och Websockets
+----------------------------------------
+Redovisningstext
+
+##### Vilka möjligheter ser du med HTML5 Websockets?
+Redovisningstext
+
+##### Vad tycker du om Node.js och hur känns det att programmera i det?
+Redovisningstext
+
+##### Beskriv hur du löste echo-servern och broadcast-servern.
+Redovisningstext
+
+##### Beskriv och berätta om din chatt. Förklara hur du byggde din chatt-server och förklara protokollet.
+Redovisningstext
+
+##### Gjorde du något på extrauppgiften?
+Redovisningstext
 
 [Upp](#)

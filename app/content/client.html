@@ -1,0 +1,35 @@
+<h1>Client for echo/broadcast server</h1>
+
+<form id="form1">
+    <fieldset>
+        <p>
+            <label>Protocol:</label><br />
+            <label id='echo'><input type="radio" name="protocol" value="echo-protocol" checked>echo-protocol</label>
+            <label id='broadcast'><input type="radio" name="protocol" value="broadcast-protocol">broadcast-protocol</label>
+        </p>
+        <p>
+
+            <label for="connect_url">Select server:</label>
+            <select class="form-control" id="connect_url">
+                <option value="1">nodejs1.student.bth.se</option>
+                <option value="2">dbwebb.se</option>
+                <!-- <option value="3">localhost server</option>
+                <option value="4">Raspberry Pi server</option> -->
+            </select><br />
+            <input id="connect" type="button" value="Connect" />
+            <input id="close" type="button" value="Close connection" />
+        </p>
+        <p>
+            <label>Send message:</label><br />
+            <input id="message" type="text" />
+            <input id="send" type="button" value="Send message" />
+        </p>
+        <p>
+            <label>Log:</label><br />
+            <div id="log" class="output">
+
+            </div>
+        </p>
+        <a href='../source?path=webroot/js/echobroadcastserver.js'>Källkod</a>
+    </fieldset>
+</form>

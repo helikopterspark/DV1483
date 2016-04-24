@@ -75,6 +75,13 @@ class CDIFactoryExtended extends \Anax\DI\CDIFactoryDefault
           return $kmom;
       });
 
+      // Websockets
+      $this->setShared('WebsocketsController', function() {
+          $ws = new \CR\Websockets\WebsocketsController();
+          $ws->setDI($this);
+          return $ws;
+      });
+
       }
 
     }

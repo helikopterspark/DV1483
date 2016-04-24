@@ -353,6 +353,7 @@ window.Asteroids = (function() {
     var bkgDX = 0.3;
     var bkg = new Image();
     bkg.src = '../webroot/img/asteroids/Distant-Galaxy-Stars-Wallpapers-1920x600.jpg';
+    //bkg.src = '../webroot/img/asteroids/GalaxyBackground.jpg';
 
     var spaceshipImage = new Image();
     spaceshipImage.src = '../webroot/img/asteroids/shipsurface.png';
@@ -404,8 +405,8 @@ window.Asteroids = (function() {
 
         uiPlay.click(function(e) {
             e.preventDefault();
-            uiIntro.hide();
             render();
+            uiIntro.hide();
             window.addEventListener('keydown', function (e) {
                 if (e.keyCode == 32) {
                     e.preventDefault();
@@ -473,6 +474,7 @@ window.Asteroids = (function() {
         // Draw background image and repeat when scrolling to the edge
         context.drawImage(bkg, bkgX, 0);
         context.drawImage(bkg, bkg.width - Math.abs(bkgX), 0);
+
         if (Math.abs(bkgX) > bkg.width) {
             bkgX = 0;
         }
