@@ -21,14 +21,18 @@ $(document).ready(function(){
     }
 
     if (sPage === 'game') {
-        $(this).asteroids();
+        $.getScript( "../webroot/js/asteroids/jquery.asteroids.js", function( data, textStatus, jqxhr ) {
+            //console.log( textStatus ); // Success
+            console.log( "Loading jquery.asteroids.js." );
+            $(this).asteroids();
+        });
     }
 
     if (sPage === 'chat') {
         $.getScript( "../js/chatclient.js", function( data, textStatus, jqxhr ) {
             //console.log( data ); // Data returned
-            console.log( textStatus ); // Success
-            console.log( jqxhr.status ); // 200
+            //console.log( textStatus ); // Success
+            //console.log( jqxhr.status ); // 200
             console.log( "Loading chatclient.js." );
         });
     }
@@ -36,8 +40,8 @@ $(document).ready(function(){
     if (sPage === 'echobroadcast') {
         $.getScript( "../js/broadcastclient.js", function( data, textStatus, jqxhr ) {
             //console.log( data ); // Data returned
-            console.log( textStatus ); // Success
-            console.log( jqxhr.status ); // 200
+            //console.log( textStatus ); // Success
+            //console.log( jqxhr.status ); // 200
             console.log( "Loading broadcastclient.js." );
         });
     }
