@@ -6,6 +6,7 @@ $(document).ready(function () {
     lines = $('#messages_list_lines'),
     userlist = $('#user_list'),
     nick,
+    connectionId,
     user_select;
 
     // Eventhandler to create the websocket connection when someone clicks the button #connect
@@ -29,7 +30,6 @@ $(document).ready(function () {
                 websocket.send(msg);
                 $('#join_section').hide();
                 $('#nick').prop('disabled', true).prop('autofocus', false);
-                $('#loggedin').val('Logged in as ' + nick);
                 $('#message').prop('autofocus', true);
                 $('#message_wd').slideToggle('slow');
                 $('#message_section').show();
@@ -39,9 +39,13 @@ $(document).ready(function () {
 
             websocket.onmessage = function(event) {
                 var rec_message = JSON.parse(event.data);
-                console.log((new Date()) + ' Server said: ' + rec_message.name + ': ' + rec_message.text);
-                outputLog(rec_message.name + ': ' + rec_message.text, rec_message.private_msg);
-                updateUserlist(rec_message.user_list, user_select);
+                if (rec_message.type === 'connectionaccept') {
+                    connectionId = rec_message.connectionId;
+                } else {
+                    console.log((new Date()) + ' Server said: ' + rec_message.name + ': ' + rec_message.text);
+                    outputLog(rec_message.name + ': ' + rec_message.text, rec_message.private_msg);
+                    updateUserlist(rec_message.user_list, user_select);
+                }
             }
 
             // Eventhandler when the websocket is closed.
@@ -97,8 +101,11 @@ $(document).ready(function () {
     // Change nickname
     $('#changenick').on('click', function() {
         var msg;
-        var newnick = prompt('Enter new nickname', nick);
-        if (newnick) {
+        var newnick = prompt('Enter a new nickname', nick);
+        while (newnick && newnick.length < 3) {
+            newnick = prompt('Nickname must be 3 characters or more.', nick);
+        }
+        if (newnick && (newnick !== nick)) {
             msg = JSON.stringify({
                 type: 'changename',
                 name: nick,
@@ -106,9 +113,8 @@ $(document).ready(function () {
             });
             websocket.send(msg);
             nick = newnick;
-            $('#loggedin').val('Logged in as ' + nick);
-            $('#message').focus();
         }
+        $('#message').focus();
     });
 
     // Close connection to server
@@ -156,10 +162,14 @@ $(document).ready(function () {
         $('#user_list_lines').empty();
         for (var i = 0; i < listOfUsers.length; i++) {
             if (listOfUsers[i] != null) {
-                if (parseInt(selected_user) == i) {
-                    selected = 'selected';
+                if (connectionId == i) {
+                    $('#user_list_lines').append('<option value="' + i + '" disabled>' + listOfUsers[i] + ' (You)</option>');
+                } else {
+                    if (parseInt(selected_user) == i) {
+                        selected = 'selected';
+                    }
+                    $('#user_list_lines').append('<option value="' + i + '" ' + selected + '>' + listOfUsers[i] + '</option>');
                 }
-                $('#user_list_lines').append('<option value="' + i + '" ' + selected + '>' + listOfUsers[i] + '</option>');
                 items += 1;
                 selected = null;
             }

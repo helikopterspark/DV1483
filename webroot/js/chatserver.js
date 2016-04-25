@@ -26,6 +26,30 @@ wsServer = new WebSocketServer({
     autoAcceptConnections: false
 });
 
+// Array.find polyfill
+if (!Array.prototype.find) {
+  Array.prototype.find = function(predicate) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    }
+    if (typeof predicate !== 'function') {
+      throw new TypeError('predicate must be a function');
+    }
+    var list = Object(this);
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    var value;
+
+    for (var i = 0; i < length; i++) {
+      value = list[i];
+      if (predicate.call(thisArg, value, i, list)) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+}
+
 // Always check and explicitly allow the origin
 function originIsAllowed(origin) {
     if (origin === 'http://dbwebb.se' || origin === 'http://localhost' || origin === 'http://127.0.0.1:8080' || origin === 'http://www.student.bth.se') {
@@ -52,7 +76,7 @@ function acceptConnectionAsBroadcast(request) {
     //var open_msg = JSON.stringify({type: 'message', text: 'You are connected to the chat server', name: 'Server'});
     connection.broadcastId = broadcastTo.push(connection) - 1;
     console.log((new Date()) + ' Broadcast connection accepted from ' + request.origin + ' id = ' + connection.broadcastId);
-    //broadcastTo[connection.broadcastId].sendUTF(open_msg);
+    broadcastTo[connection.broadcastId].sendUTF(JSON.stringify({type: 'connectionaccept', connectionId: connection.broadcastId}));
 
     // Callback to handle each message from the client
     connection.on('message', function(message) {
@@ -87,8 +111,14 @@ function acceptConnectionAsBroadcast(request) {
             console.log('Broadcast message to ' + clients + ' clients: ' + message.utf8Data);
         // login message
         } else if (rec_msg.type === 'name') {
-            if (rec_msg.name.length > 0) {
-                connection.name = htmlEntities(rec_msg.name);
+            if (htmlEntities(rec_msg.name).length > 0) {
+                if (users.find(function(name) {
+                    return name === htmlEntities(rec_msg.name);
+                })) {
+                    connection.name = htmlEntities(rec_msg.name) + ' (' + connection.broadcastId + ')';
+                } else {
+                    connection.name = htmlEntities(rec_msg.name);
+                }
             } else {
                 connection.name = 'Guest' + connection.broadcastId;
             }
@@ -108,13 +138,21 @@ function acceptConnectionAsBroadcast(request) {
                     broadcastTo[i].sendUTF(send_msg);
                 }
             }
+            // change nickname
         } else if (rec_msg.type === 'changename') {
-            users[connection.broadcastId] = htmlEntities(rec_msg.newname);
-            connection.name = htmlEntities(rec_msg.newname);
+            if (users.find(function(name) {
+                return name === htmlEntities(rec_msg.newname);
+            })) {
+                users[connection.broadcastId] = htmlEntities(rec_msg.newname) + ' (' + connection.broadcastId + ')';
+                connection.name = htmlEntities(rec_msg.newname) + ' (' + connection.broadcastId + ')';
+            } else {
+                users[connection.broadcastId] = htmlEntities(rec_msg.newname);
+                connection.name = htmlEntities(rec_msg.newname);
+            }
             send_msg = JSON.stringify({
                 type: 'message',
                 name: htmlEntities(rec_msg.name),
-                text: 'is now known as ' + htmlEntities(rec_msg.newname),
+                text: 'is now known as ' + users[connection.broadcastId],
                 user_list: users
             });
 
