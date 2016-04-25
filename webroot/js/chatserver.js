@@ -83,6 +83,7 @@ function acceptConnectionAsBroadcast(request) {
         var rec_msg = JSON.parse(message.utf8Data);
         var clients = 0;
         var send_msg;
+        var oldname;
 
         // send message
         if (rec_msg.type === 'message' && rec_msg.text) {
@@ -116,6 +117,7 @@ function acceptConnectionAsBroadcast(request) {
                     return name === htmlEntities(rec_msg.name);
                 })) {
                     connection.name = htmlEntities(rec_msg.name) + ' (' + connection.broadcastId + ')';
+                    broadcastTo[connection.broadcastId].sendUTF(JSON.stringify({type: 'nameappend', nameappend: connection.name}));
                 } else {
                     connection.name = htmlEntities(rec_msg.name);
                 }
@@ -140,19 +142,21 @@ function acceptConnectionAsBroadcast(request) {
             }
             // change nickname
         } else if (rec_msg.type === 'changename') {
+            oldname = connection.name;
             if (users.find(function(name) {
                 return name === htmlEntities(rec_msg.newname);
             })) {
                 users[connection.broadcastId] = htmlEntities(rec_msg.newname) + ' (' + connection.broadcastId + ')';
                 connection.name = htmlEntities(rec_msg.newname) + ' (' + connection.broadcastId + ')';
+                broadcastTo[connection.broadcastId].sendUTF(JSON.stringify({type: 'nameappend', nameappend: connection.name}));
             } else {
                 users[connection.broadcastId] = htmlEntities(rec_msg.newname);
                 connection.name = htmlEntities(rec_msg.newname);
             }
             send_msg = JSON.stringify({
                 type: 'message',
-                name: htmlEntities(rec_msg.name),
-                text: 'is now known as ' + users[connection.broadcastId],
+                name: oldname,
+                text: 'is now known as ' + connection.name,
                 user_list: users
             });
 

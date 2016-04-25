@@ -41,6 +41,8 @@ $(document).ready(function () {
                 var rec_message = JSON.parse(event.data);
                 if (rec_message.type === 'connectionaccept') {
                     connectionId = rec_message.connectionId;
+                } else if (rec_message.type === 'nameappend') {
+                    nick = rec_message.nameappend;
                 } else {
                     console.log((new Date()) + ' Server said: ' + rec_message.name + ': ' + rec_message.text);
                     outputLog(rec_message.name + ': ' + rec_message.text, rec_message.private_msg);
