@@ -134,14 +134,14 @@ $(document).ready(function () {
             case '2':
             url = 'ws://nodejs2.student.bth.se:8079';
             break;
-            /*
+            
             case '3':
             url = 'ws://127.0.0.1:8079';
             break;
             case '4':
             url = 'ws://10.0.1.40:8079';
             break;
-            */
+
             default:
             url = 'ws://nodejs1.student.bth.se:8079';
             break;

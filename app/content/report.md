@@ -1,4 +1,4 @@
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06) | [Kmom07/10](#Kmom071)
 
 <a id="Kmom01" class="anchor"></a>Kmom01: Kom igång med JavaScript
 --------------------------------
@@ -202,5 +202,50 @@ Jag lade till några extra funktioner. Jag har inte satt mig in i IRC-protokolle
 Det går att byta namn via en prompt. Namnbytet annonseras i chatten och deltagarlistan uppdateras.
 
 Det är också möjligt att skicka privata meddelanden. Man markerar bara en deltagare i listan och sedan skickas meddelanden endast till denne. Privat meddelande får gul bakgrund i chattfönstret. Jag hade lite problem med att få till avmarkering av vald deltagare, för att kunna skicka till alla. Jag löste det med att lägga till ett osynligt div-element under listan som man kan klicka på för att avmarkera.
+
+[Upp](#)
+
+<a id="Kmom070" class="anchor"></a>Kmom 7/10: Projekt och Examination
+----------------------------------------
+Länk till produktsidan:
+
+Länk till koden på github:
+
+Länk till redovisningssida:
+
+##### Krav k1: Paketera, presentera och produktifiera
+Som projekt har jag valt att vidareutveckla det spel jag gjorde för kursmoment 5. Det fick stort gensvar bland vänner och bekanta och därför ville jag göra det bättre med fler inslag och med ett mer professionellt utseende och teknisk genomförande.
+
+Jag har gjort en presentationssida där jag försökt få den att se ut som en typisk sida för ett indie-dataspel med rymdtema. Sidan har en luftig design med lite bling-bling-liknande neonlika typsnitt i samma stil som spelet, och lite scifi-look. En säljande text illustrerad med skärmdumpar från spelet förklarar vad spelet går ut på. Självfallet finns det en direktlänk till spelet i form av en knapp i samma utförande som i spelet.
+
+Där finns också en instruktion för hur man kan ladda ned koden och installera på sin egen webbserver. Installationen är enkel och därmed är instruktionerna enkla. Man behöver i princip bara en webbserver och sen är det bara att köra. Länk till github-repot är inkluderad.
+
+Dessutom finns det på presentationssidan en teaser längst ned om kommande multiplayer-funktionalitet. Det visar att det kommer mera och skapar förhoppningvis förväntan på kommande version.
+
+Produkten löser inga världsproblem direkt utan är tänkt att ge en kortare eller längre stunds förströelse. Spelet är enkelt så att i princip alla kan spela det och snabbt spela några omgångar. Det kan dock vara ganska beroendeframkallande, och det är ju bra ur säljande synpunkt.
+
+##### Krav k2: Ha koll på konkurrenterna och lär av dem
+Det finns en enorm mängd webbspel och det är svårt att få en överblick. Jag har tittat på några stycken för att se vad som är tekniskt möjligt att göra. När det gäller s k indie-spel så finns det en stor variation på hur de ser ut och vad de går ut på. Det finns altifrån väldigt enkla och rudimentära spel till riktiga proffsjobb. Det är svårt att peka ut rena konkurrenter. Just mångfalden av spel och spelare gör att det finns något för alla.
+
+Ett spel som jag fastnade för är Multeor, http://multeor.com. Det är ett multiplayer-spel med ett liknande enkelt tema som mitt spel har. Styr en komet och försök krascha så mycket som möjligt innan den stannar. Det stora finessen med Multeor är att man kan använda mobilen som spelkontroll. Jag tycker dock att styrningen var lite krånglig och jag tycker att mitt spel fungerar bättre på den punkten.
+
+Ett väldigt bra exempel på vad som går att göra med HTML5 är Command & Conquer-remaken av Aditya Ravi Shankar: http://www.adityaravishankar.com/projects/games/command-and-conquer/. I hans boken Pro HTML5 Games finns också ett bra exempel på hur man skriver en gameserver.
+
+En samling multiplayer-spel att inspireras av finns på https://multiplayernow.com.
+
+Tanken var att jag skulle hinna med att utveckla ett multiplayer-läge i projektet men det visade sig bli för komplext och tidsödande att få server och klienter att lira tekniskt bra i själva spelet. Jag fick till en väl fungerande lobby och chat, och det går att initiera och starta ett spel. Längre än så hann jag inte med spelservern tyvärr och väljer att inte redovisa denna eftersom den inte är fullt fungerande vid tiden för deadline. Det är dock ett utmärkt och självklart område för vidareutveckling och därför gör jag reklam för det på sidan. Planen är att utveckla en spelserver som hanterar tidsfördröjning m h a prediktion och interpolering av spelares rörelser. En intressant artikel i ämnet som jag tänkt utgå ifrån är denna av Sven Bergström: http://buildnewgames.com/real-time-multiplayer/.
+
+##### Krav k3: Kvalitet och omfattning
+Kav 3
+
+##### Krav k4, k5, k6: Valbart krav (optionellt)
+
+Krav 4, 5, 6
+
+WebAudio API
+
+Fysikmodellen, prototyper, spelbarhet
+
+Canvas-animationer istället för jQuery. jQuery för GUI och menyer. Canvas för animationer i spelet.
 
 [Upp](#)

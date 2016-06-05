@@ -406,7 +406,8 @@ window.Asteroids = (function() {
         uiPlay.click(function(e) {
             e.preventDefault();
             render();
-            uiIntro.hide();
+            //uiIntro.hide();
+            uiIntro.slideUp("fast");
             window.addEventListener('keydown', function (e) {
                 if (e.keyCode == 32) {
                     e.preventDefault();
@@ -417,7 +418,8 @@ window.Asteroids = (function() {
 
         uiReset.click(function(e) {
             e.preventDefault();
-            uiComplete.hide();
+            //uiComplete.hide();
+            uiComplete.slideUp("fast");
             resetGame();
             render();
 
@@ -514,7 +516,8 @@ window.Asteroids = (function() {
         playGame = false;
         clearTimeout(scoreTimeout);
         uiStats.hide();
-        uiComplete.show();
+        //uiComplete.show();
+        uiComplete.slideDown(75);
         $('body').unbind('keydown');
         $('body').css('cursor', '');
         soundDeath.currentTime = 0;
