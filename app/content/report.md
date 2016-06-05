@@ -207,11 +207,6 @@ Det är också möjligt att skicka privata meddelanden. Man markerar bara en del
 
 <a id="Kmom070" class="anchor"></a>Kmom 7/10: Projekt och Examination
 ----------------------------------------
-Länk till produktsidan:
-
-Länk till koden på github:
-
-Länk till redovisningssida:
 
 ##### Krav k1: Paketera, presentera och produktifiera
 Som projekt har jag valt att vidareutveckla det spel jag gjorde för kursmoment 5. Det fick stort gensvar bland vänner och bekanta och därför ville jag göra det bättre med fler inslag och med ett mer professionellt utseende och teknisk genomförande.
@@ -236,16 +231,20 @@ En samling multiplayer-spel att inspireras av finns på https://multiplayernow.c
 Tanken var att jag skulle hinna med att utveckla ett multiplayer-läge i projektet men det visade sig bli för komplext och tidsödande att få server och klienter att lira tekniskt bra i själva spelet. Jag fick till en väl fungerande lobby och chat, och det går att initiera och starta ett spel. Längre än så hann jag inte med spelservern tyvärr och väljer att inte redovisa denna eftersom den inte är fullt fungerande vid tiden för deadline. Det är dock ett utmärkt och självklart område för vidareutveckling och därför gör jag reklam för det på sidan. Planen är att utveckla en spelserver som hanterar tidsfördröjning m h a prediktion och interpolering av spelares rörelser. En intressant artikel i ämnet som jag tänkt utgå ifrån är denna av Sven Bergström: http://buildnewgames.com/real-time-multiplayer/.
 
 ##### Krav k3: Kvalitet och omfattning
-Kav 3
+Jag har lagt mycket tid på detta projekt och har utvecklat den från början enkla koden till en mer avancerad produkt. Jag har fått med det mesta som kursen behandlar, Javascript, jQuery, Ajax och Canvas. Även websockets även om jag inte redovisar den delen pga av den inte hann bli klar.
+
+En hel del tid har också lagts på att få spelet att se grafiskt tilltalande ut. Att få till ett bra gameplay har också tagit tid, hur snabbt ska det gå, hur många stenar ska genereras, hur snabbt ska lasern laddas, etc.
 
 ##### Krav k4, k5, k6: Valbart krav (optionellt)
+Den viktigaste punkten är att jag frångått att använda ljud via <audio>-taggen och använt mig av WebAudio API:t. Jag fick tidigt problem med prestanda i spelet pga att olika webbläsare hanter ljud olika bra via denna teknik. Sämst fungerade det i Safari. Detta ledde mig till WebAudio, som är framtaget just för att erbjuda högkvalitativt ljud i webbläsare. För att göra hanteringen än mer avancerad har jag valt att konkatenera alla ljudfiler i en enda stor som sedan packas upp och delas i flera ljud. Det leder till att färre requests behöver göras.
 
-Krav 4, 5, 6
+Jag har uppdaterat fysikmodellen till att gälla objekt som rör sig. tidigare var det bara spelren. Nu är asteroider och laserskott också vektorer som dessutom kompenserad för lagg i webbläsaren.
 
-WebAudio API
+Jag har valt att använda Canvas-animationer istället för jQuery för allt som rör på sig i spelet. Det är annars lockande att använda jQuery. Nu används det endast för för GUI och menyer. Ett exempel är meddelande om en triple hit som först gjordes med ett jQuery-anrop. Det fick dock spelet att hicka till och jag insåg att manipulering av DOM-objekt innebär en hel del overhead. Nu är det istället en canvas-animering. Mer omständligt att koda men ett mjukare resultat när animeringen sker.
 
-Fysikmodellen, prototyper, spelbarhet
+##### kursen
+Kursen har gått igenom ett flertal saker och det känns om att man breddat kunskapen. Jag hade ingen erfarnehet av JavaScript sedan tidigare men känner nu att jag kan få till en hel del i språket. Visserligen har man bara skrapat på ytan och jag hade gärna gått mer på djupet med node.js. I viss mån har kursen kännts spretig och vissa av övningarna känns lite hafsiga. Man får söka mycket material på annat håll.
 
-Canvas-animationer istället för jQuery. jQuery för GUI och menyer. Canvas för animationer i spelet.
+Det har kännts som att man mest suttit själv i denna kurs och jag har inte haft mycket kontakt med lärare. Lite för lite kanske. Det är sista terminen som kursen går så jag kommer nog inte att rekommendera den till någon. Betyg, 7 av 10.
 
 [Upp](#)
