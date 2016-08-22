@@ -208,49 +208,25 @@ Det är också möjligt att skicka privata meddelanden. Man markerar bara en del
 <a id="Kmom0710" class="anchor"></a>Kmom 7/10: Projekt och Examination
 ----------------------------------------
 
-Länk till [spelsidan](#http://www.student.bth.se/~carb14/javascript/AstNrUrns/game.php)
+Länk till [spelsidan](http://www.student.bth.se/~carb14/javascript/AstNrUrns/game.php)
 
-Länk till [produktsidan](#http://www.student.bth.se/~carb14/javascript/AstNrUrns/index.php)
+Länk till [produktsidan](http://www.student.bth.se/~carb14/javascript/AstNrUrns/index.php)
 
-Länk till koden på [github](#https://github.com/helikopterspark/AstNrUrns)
+Länk till koden på [github](https://github.com/helikopterspark/AstNrUrns)
 
 ##### Krav k1: Paketera, presentera och produktifiera
-Som projekt har jag valt att vidareutveckla det spel jag gjorde för kursmoment 5. Det fick stort gensvar bland vänner och bekanta och därför ville jag göra det bättre med fler inslag och med ett mer professionellt utseende och teknisk genomförande.
-
-Jag har gjort en presentationssida där jag försökt få den att se ut som en typisk sida för ett indie-dataspel med rymdtema. Sidan har en luftig design med lite bling-bling-liknande neonlika typsnitt i samma stil som spelet, och lite scifi-look. En säljande text illustrerad med skärmdumpar från spelet förklarar vad spelet går ut på. Självfallet finns det en direktlänk till spelet i form av en knapp i samma utförande som i spelet.
-
-Där finns också en instruktion för hur man kan ladda ned koden och installera på sin egen webbserver. Installationen är enkel och därmed är instruktionerna enkla. Man behöver i princip bara en webbserver och sen är det bara att köra. Länk till github-repot är inkluderad.
-
-Dessutom finns det på presentationssidan en teaser längst ned om kommande multiplayer-funktionalitet. Det visar att det kommer mera och skapar förhoppningvis förväntan på kommande version.
-
-Produkten löser inga världsproblem direkt utan är tänkt att ge en kortare eller längre stunds förströelse. Spelet är enkelt så att i princip alla kan spela det och snabbt spela några omgångar. Det kan dock vara ganska beroendeframkallande, och det är ju bra ur säljande synpunkt.
+text
 
 ##### Krav k2: Ha koll på konkurrenterna och lär av dem
-Det finns en enorm mängd webbspel och det är svårt att få en överblick. Jag har tittat på några stycken för att se vad som är tekniskt möjligt att göra. När det gäller s k indie-spel så finns det en stor variation på hur de ser ut och vad de går ut på. Det finns altifrån väldigt enkla och rudimentära spel till riktiga proffsjobb. Det är svårt att peka ut rena konkurrenter. Just mångfalden av spel och spelare gör att det finns något för alla.
-
-Ett spel som jag fastnade för är Multeor, http://multeor.com. Det är ett multiplayer-spel med ett liknande enkelt tema som mitt spel har. Styr en komet och försök krascha så mycket som möjligt innan den stannar. Det stora finessen med Multeor är att man kan använda mobilen som spelkontroll. Jag tycker dock att styrningen var lite krånglig och jag tycker att mitt spel fungerar bättre på den punkten.
-
-Ett väldigt bra exempel på vad som går att göra med HTML5 är Command & Conquer-remaken av Aditya Ravi Shankar: http://www.adityaravishankar.com/projects/games/command-and-conquer/. I hans boken Pro HTML5 Games finns också ett bra exempel på hur man skriver en gameserver.
-
-En samling multiplayer-spel att inspireras av finns på https://multiplayernow.com.
-
-Tanken var att jag skulle hinna med att utveckla ett multiplayer-läge i projektet men det visade sig bli för komplext och tidsödande att få server och klienter att lira tekniskt bra i själva spelet. Jag fick till en väl fungerande lobby och chat, och det går att initiera och starta ett spel. Längre än så hann jag inte med spelservern tyvärr och väljer att inte redovisa denna eftersom den inte är fullt fungerande vid tiden för deadline. Det är dock ett utmärkt och självklart område för vidareutveckling och därför gör jag reklam för det på sidan. Planen är att utveckla en spelserver som hanterar tidsfördröjning m h a prediktion och interpolering av spelares rörelser. En intressant artikel i ämnet som jag tänkt utgå ifrån är denna av Sven Bergström: http://buildnewgames.com/real-time-multiplayer/.
+text
 
 ##### Krav k3: Kvalitet och omfattning
-Jag har lagt mycket tid på detta projekt och har utvecklat den från början enkla koden till en mer avancerad produkt. Jag har fått med det mesta som kursen behandlar, Javascript, jQuery, Ajax och Canvas. Även websockets även om jag inte redovisar den delen pga av den inte hann bli klar.
-
-En hel del tid har också lagts på att få spelet att se grafiskt tilltalande ut. Att få till ett bra gameplay har också tagit tid, hur snabbt ska det gå, hur många stenar ska genereras, hur snabbt ska lasern laddas, etc.
+text
 
 ##### Krav k4, k5, k6: Valbart krav (optionellt)
-Den viktigaste punkten är att jag frångått att använda ljud via <audio>-taggen och använt mig av WebAudio API:t. Jag fick tidigt problem med prestanda i spelet pga att olika webbläsare hanter ljud olika bra via denna teknik. Sämst fungerade det i Safari. Detta ledde mig till WebAudio, som är framtaget just för att erbjuda högkvalitativt ljud i webbläsare. För att göra hanteringen än mer avancerad har jag valt att konkatenera alla ljudfiler i en enda stor som sedan packas upp och delas i flera ljud. Det leder till att färre requests behöver göras.
-
-Jag har uppdaterat fysikmodellen till att gälla objekt som rör sig. tidigare var det bara spelaren. Nu är asteroider och laserskott också vektorer som dessutom kompenserar för lagg i webbläsaren.
-
-Jag har valt att använda canvas-animationer istället för jQuery för allt som rör på sig i spelet. Det är annars lockande att använda jQuery. Nu används det endast för GUI och menyer. Ett exempel är meddelande om en triple hit som först gjordes med ett jQuery-anrop. Det fick dock spelet att hicka till och jag insåg att manipulering av DOM-objekt innebär en hel del overhead. Nu är det istället en canvas-animering. Mer omständligt att koda men ett mjukare resultat när animeringen sker.
+text
 
 ##### Kursen
-Kursen har gått igenom ett flertal saker och det känns om att man breddat kunskapen. Jag hade ingen erfarenhet av JavaScript sedan tidigare men känner nu att jag kan få till en hel del i språket. Visserligen har man bara skrapat på ytan och jag hade gärna gått mer på djupet med node.js. I viss mån har kursen kännts spretig och vissa av övningarna känns lite hafsiga. Man får söka mycket material på annat håll.
-
-Det har kännts som att man mest suttit själv i denna kurs och jag har inte haft mycket kontakt med lärare. Lite för lite kanske. Det är sista terminen som kursen går så jag kommer nog inte att rekommendera den till någon. Betyg, 7 av 10.
+text
 
 [Upp](#)
