@@ -208,25 +208,132 @@ Det är också möjligt att skicka privata meddelanden. Man markerar bara en del
 <a id="Kmom0710" class="anchor"></a>Kmom 7/10: Projekt och Examination
 ----------------------------------------
 
-Länk till [spelsidan](http://www.student.bth.se/~carb14/javascript/AstNrUrns/game.php)
+Länk till [spelsidan](http://www.student.bth.se/~carb14/javascript/project/asturan/game.php)
 
-Länk till [produktsidan](http://www.student.bth.se/~carb14/javascript/AstNrUrns/index.php)
+Länk till [produktsidan](http://www.student.bth.se/~carb14/javascript/project/asturan/index.php)
 
-Länk till koden på [github](https://github.com/helikopterspark/AstNrUrns)
+Länk till koden på [github](https://github.com/helikopterspark/asturan)
 
-##### Krav k1: Paketera, presentera och produktifiera
-text
+#### Krav k1: Paketera, presentera och produktifiera
+Som projektuppgift valde jag att bygga vidare på spelet jag gjorde i kmom05. Tanken var att göra ett snyggare och bättre spel av det. Målet var att få det att se ut som ett professionellt utvecklat spel istället för en liten programmeringsövning. Det är ett i grunden simpelt shoot-em-up som för tankarna till klassiska C64-spel. Det lämpar sig väldigt bra som webbläsarspel.
 
-##### Krav k2: Ha koll på konkurrenterna och lär av dem
-text
+Spelet har fått bättre grafik, bättre ljud, bättre prestanda och bättre spelkänsla med förbättrad spelfysik. Sist men inte minst har jag lagt till multiplayer-spel via Websockets och WebRTC. Det har helt enkelt blivit en produkt av det. Det fungerar väldigt bra som en kortare eller längre stunds förströelse och har redan fått positiva omdömen av vänner och bekanta som har testat.
 
-##### Krav k3: Kvalitet och omfattning
-text
+Spelet i sig är mycket enkelt. Man ska flyga mot asteroidsvärmen och undvika att krocka. Till sin hjälp har man en laserkanon att skjuta bort stenar med. Den behöver laddas upp efter varje avfyrning så det gäller att skjuta i rätt stund. Lyckas man träffa tre stenar med samma salva får man extra bonuspoäng. Fysiken fungerar som så att skeppet trycks tillbaka av svärmen och man måste därför gasa sig framåt. Det gäller att gasa och skaffa sig rörelseenergi annars blir även rörelsen i y-led för långsam för att man ska hinna svänga undan för stenarna.
 
-##### Krav k4, k5, k6: Valbart krav (optionellt)
-text
+Paketeringen består först och främst av en presentationssida som beskriver vad spelet går ut på, inklusive skärmdumpar från spelet. Sedan beskrivs vilka tekniker som spelet bygger på och framhäver att de senaste webbteknikerna har använts. Installationsinstruktioner finns och länk till källkoden på Github.
 
-##### Kursen
-text
+Layouten på presentationssidan är gjord i samma stil som själva spelet för att allt ska ha ett enhetligt tema. För skärmdumparna fick jag också användning för min lightbox-plugin som jag gjorde i ett av kursmomenten, [The Lightbox Gallery](https://github.com/helikopterspark/thelightboxgallery). Från presentationssidan tar man sig till spelet via Play now!-knappen.
+
+Själva spelet har också snyggats upp med mer animerad grafik och har ramats in med stylade titelskärmar mellan spelsessionerna. Man har fått en laserkanon att skjuta på asteroiderna med och de exploderar i snyggt animerade explosioner. Även laddningen av lasern har fått en liten animation överst på skärmen. GUI:t har en del effekter gjorda med jQuery och inne i själva spelet är det allra mesta gjort med Canvas för bättre prestanda.
+
+Jag har försökt snabba upp inladdningen av spelets resurser genom att hålla ned antalet filer och baka ihop alla ljudfiler till en stor. Ett par eventhanterare håller koll på inladdningen av bild och ljudfiler så att alla resurser laddas innan titelsidan visas. Bilderna laddas in med hjälp av ett imageLoader-objekt som när alla bilder laddats fyrar av ett CustomEvent, vilket fångas upp av en eventhanterare. Inladdning av ljud beskrivs under krav 4.
+
+#### Krav k2: Ha koll på konkurrenterna och lär av dem
+Vill man hitta konkurrenter till ett HTML5-spel så finner man säkert ett oräkneligt antal. Hur de konkurrerar med varandra kan också diskuteras förutom att de konkurrerar om potentiella spelares tid. Hur som helst så finns det portaler som samlar flertalet spel. Ett exempel är t ex [itch.io](https://itch.io/games/html5/tag-space) där man hittar spel i olika kategorier. Jag har länkat till kategorin Space och där finner man allt från väldigt enkla spel till mer avancerade med 3D-grafik. Mitt spel hade mycket väl kunnat inkluderas där och inte gjort någon dålig figur.
+
+En fördel med mitt spel är att det inte bygger på något tungt ramverk, såsom Unity. Detta gör spelet snabbladdat och det blir inte så tunga beroenden som dessutom kan leda till kompabilitetsproblem vid uppdateringar.
+
+Det mitt spel saknar och skulle kunna utökas med är fler olika typer av objekt som möter spelaren. Man skulle kunna tänka sig power-ups som ger kraftigare kanon eller sköldar. Ett klassiskt inslag som saknas är bossar att bekämpa vid lämpliga intervaller. Allt detta får ingå i utvecklingsplanen för nästa version.
+
+Ytterligare en sak att förbättra är egen ljuddesign, med originalmusik och egna unika ljudeffekter. De public domain-ljud jag använt riskerar ju att dyka upp i andra spel. Detsamma gäller grafiken men där skulle jag behöva anlita någon mer kunnig.
+
+Börjar man leta efter multiplayer-spel så finns det också en uppsjö, se t ex [multiplayernow.com](https://multiplayernow.com). Tittar man närmare på vissa så använder de i regel websockets. Ett som jag fastnade för är [vanar.io](https://multiplayernow.com/games/vanario). Det skiljer sig lite som spel men där finns asteroider och andra spelare att skjuta på. Det är dock inte peer-to-peer och använder sig inte av WebRTC. Faktum är att det är tunnsått med spel där tekniken används och därför är det en viktig sak att lyfta fram med mitt spel. Jag har dock hittat ett som ser väldigt bra ut, [CubeSlam](https://www.cubeslam.com/tech). Det använder sig av WebRTC och även WebAudio och WebGL.
+
+Så ytterligare en sak man skulle kunna tänka sig i nästa version är WebGL och 3D men då kanske det vore bättre att börja om med ett helt nytt spel. 2D har sin retro-charm.
+
+Jag har valt att inte lägga upp någon analys av konkurrenter på produktsidan då detta vore malplacerat och rent av lite osnyggt. Det kanske lämpar sig när man ska sälja ERP-system men känns inte applicerbart på en spelpresentation. Jag har istället försökt skriva lite säljande text som hypar spelet och teknikerna det bygger på, plus en teaser om vad som kommer i en framtida version.
+
+#### Krav k3: Kvalitet och omfattning
+Jag har som sagt byggt vidare på spelidén från kmom05 men har gjort en väldigt omfattande omarbetning och utökning av kod och funktioner. Projektet får anses som mer omfattande och har krävt avsevärt mer än 80 timmar att genomföra. Ett mål var att inkludera samtliga tekniker som förekommit i kursmomenten och dessutom lägga till några ytterligare. Slutresultatet är kod som väsentligen skiljer sig från koden som finns i kursmomenten och dessutom använder sig av "the bleading edge"-teknik för ljud och peer-to-peer-uppkoppling.
+
+Koden innehåller exempel på alla tekniker som behandlats kursmomenten. Förutom ren Javascript så ingår:
+
+* jQuery, används flitigt till att manipulera DOM-objekt i GUI:t dvs skärmtexter, chattfönster med mera.
+
+* AJAX och JSON, används till att hantera hiscore-listan och inladdning av multiplayer-modulen.
+
+* HTML5 Canvas, används till animeringar, sprites och övrig spelgrafik.
+
+* Prototypbaserad programmering, har använts för de olika spelobjekten.
+
+* Websockets och Node.js, används till Game-lobbyn, gruppchatt och som signaleringsserver för WebRTC.
+
+* WebAudioAPI, används till ljudhantering för bättre ljudprestanda.
+
+* WebRTC, används till att skapa en peer-to-peer-uppkoppling mellan spelare, för synk av spelet och privat chatt.
+
+De två sistnämnda teknikerna är relativt nya. WebAudioAPI är någorlunda väldokumenterat och var inte så svårt att sätta sig in. WebRTC är å andra sidan en teknik som fortfarande är under utveckling och därmed knapphänt dokumenterad. Se t ex MDN:s föga uttömmande [artikel](https://developer.mozilla.org/en-US/docs/Games/Techniques/WebRTC_data_channels) i ämnet. Lägg därtill att tekniken är krånglig att förstå. Det har varit en krävande uppgift att ens få första uppkopplingen mellan webbläsare att fungera då det varit svårt att hitta fungerande exempel på webben.
+
+#### Krav k4, k5, k6: Valbart krav (optionellt)
+
+###### Ljudhantering med WebAudioAPI (k4)
+Att lägga till ljud med ```<audio>```-taggen är visserligen enkelt men ger dålig prestanda när flera ljud ska spelas upp samtidigt och på givna händelser. Det märks tydligt i spelet i kmom05 och allra mest i Safari där ljudet ibland är en sekund efter.
+
+Efter lite sökande på nätet om hur man får bättre prestanda så hittade jag flera bra artiklar om WebAudioAPI och byggde upp ljudhanteringen med hjälp av detta API. API:t ger stora möjligheter att skapa och manipulera ljud. En bra första artikel är [Getting Started with Web Audio API](https://www.html5rocks.com/en/tutorials/webaudio/intro/).
+
+Först skapas en instans av AudioContext. Sedan kopplas ljud till denna instans som destination för uppspelning. Ljud laddas in, dekodas och man får en AudioBuffer som spelar upp ljudet. För att sätta volymnivån på respektive ljud så kopplas det till en GainNode. Man kan ha flera GainNodes för att kunna ställa inbördes volym mellan ljuden. Jag har valt att låta alla ljud gå via en mastervolym och det finns en slider under spelfönstret där volymnivån kan ändras av användaren. Under spelets gång kan volymen ställas med tangenterna 1 (höja) och 2 (sänka).
+
+Med alla ljud laddade är det lätt att spela upp lämpligt ljud vid en händelse, t ex vid en explosion. Jag hade lite problem med att ljudet för raketmotorn spelades upp hela tiden och i lager på lager efter varje gång spelaren gasar. Jag fick lösa detta genom att låta det ljudet spela hela tiden men med volymen på noll. När spelaren gasar så höjs bara volymen och sänks igen när spelaren släpper tangenten (ungefär så som en analog synthesizer fungerar).
+
+Det finns fler möjligheter med API:t att skapa egna ljud och lägga på filter och effekter. Jag har dock valt att hämta färdiga ljud gratis från freesound.org och de är listade i README.md.
+
+För att snabba upp och förenkla inladdningen av alla ljudfiler så har alla ljuden konkatenerats till en enda fil med hjälp av ett Python-skript. Filen packas sedan upp och delas upp i flera ljudobjekt efter inladdning. Jag har utgått från ett exempel på [Loading sound files faster using Array Buffers and Web Audio API](https://www.clicktorelease.com/blog/loading-sounds-faster-using-html5-web-audio-api), där jag också lånade Python-skriptet. Fördelen med detta är att färre anrop behöver göras till servern och alla ljud laddas i ett svep.
+
+Jag har också använt ett paket för att hantera vendor-prefix för WebAudioAPI; AudioContext MonkeyPatch.
+
+Stödet för WebAudio i olika webbläsare varierar men jag tror alla moderna läsare klarar av det. Safari är återigen den läsare som kan krångla lite. Ibland behöver man ladda om sidan en gång efter första inladdning för att få något ljud alls. Övriga läsare har dock fungerat bra så långt jag har kunnat testa. På det hela taget fungerar ljudet utmärkt med WebAudioAPI:t.
+
+###### Game-lobby med Websockets (k5)
+Ett första steg för ett multiplayer-spel är en server att ansluta till för att kunna hitta andra spelare. Därför finns en node.js/Websocket-server med en game-lobby, rumshantering och gruppchatt.
+
+När användaren klickar på Multiplayer-knappen så laddas modulen multiplayer in och ```multiplayer.start()``` ansluter webbläsaren till websockets-servern. Vid lyckad anslutning visas game-lobbyn. Den består av ett fönster med en lista över rum (Sector 1 - 8) och ett chatt-fönster. I chatten kan anslutna spelare chatta med varandra och hitta någon att spela med.
+
+För att dra igång ett spel väljer man ett rum i listan och klickar på Join. Servern håller reda på antalet spelare i respektive rum. Vill man lämna ett rum klickar man på Cancel. Ytterligare ett klick på Cancel tar spelaren tillbaka till startskärmen. När två spelare valt samma rum upprättas en anslutning dem emellan via WebRTC och spelet startar. Websockets-servern fungerar då som signaleringsserver för WebRTC-uppkopplingen.
+
+För Websockets har jag använt paketet websocket ([theturtle32/WebSocket-Node](https://github.com/theturtle32/WebSocket-Node)). Först byggde jag servern på socket.io men tyckte att det paketet verkade väldigt tungt att ladda ned med en hel drös av kataloger och filer. Socket.io har visserligen stöd för äldre tekniker att falla tillbaka på om websockets inte stöds, men eftersom multiplayer-spelet bygger på WebRTC så krävs det ändå en modern webbläsare med stöd för de senaste teknikerna. Websocket är smidigare och fullt tillräckligt för den funktionalitet servern har. Filen server.js innehåller server-koden och startas med ```node server.js```.
+
+Websockets-servern kommer att vara igång på studentservern (nodejs2) i en tmux-session. Risken finns förstås att servern går ned om något sker med studentservern, så att websockets-servern måste startas om. Alternativt går det att testa genom att göra en installation i en egen node-miljö.
+
+###### Multiplayer Peer-to-peer via WebRTC (k6)
+Min första plan var att bygga ett multiplayer-spel enbart med websockets, där servern skulle styra spelet och förmedla styrkommandon och asteroidpositioner till spelarna. Fördelen med en sådan auktoritär server är att det är svårare för klienter att fuska. Det visade sig snart att prestandan blev alltför dålig för denna typ av spel och idén med en auktoritär spelserver via websockets föll. Jag var nära att ge upp multiplayer-delen på grund av detta men fick upp ögonen för WebRTC och dess peer-to-peer-uppkoppling. WebRTC-tekniken är främst tänkt för ljud och video-överförning direkt mellan två webbläsare men den innehåller även en datakanal för överföring av data och text. Förutom till chatt så kan den användas just för spel. En stor fördel med tekniken är att man kan välja snabbast möjliga överföring med "unreliable datachannels" motsvarande UDP.
+
+WebRTC är fortfarande en ny och omogen teknik som dessutom utvecklas och förändras mycket. Lägg därtill att inte alla webbläsare stöder tekniken än. I skrivande stund har Chrome, Firefox och Opera stöd för WebRTC. Edge har delvis stöd medan IE och Safari inte har det. Så som ett första steg har jag lagt in en s k Feature detect (```if ( !navigator.getUserMedia )```) för att kolla om webbläsaren har WebRTC-stöd. Finns inte detta så går det inte att logga in i spellobbyn, då får man hålla sig till singleplayer.
+
+Har man väl loggat in i spellobbyn och två spelare ansluter sig till samma rum så startas signaleringen dem emellan. Den första spelaren, initiatorn, skickar ett erbjudande om en peer-to-peer-uppkoppling via WebRTC som den andra spelarens webbläsare svarar på. För att det ska fungera genom olika nätverk med brandväggar etc så går signaleringen via en s k STUN-server. Om man inte har en egen sådan kan man använda en Google-server för detta, vilket jag har gjort. Att få denna uppkoppling att fungera har varit den enskilt svåraste saken att lösa i detta projekt. Merparten av de exempel jag har hittat på webben har varit utdaterade och icke-fungerande. Under arbetets gång dök det dock upp en Google codelab som faktiskt visade sig fungera. Den bygger visserligen på socket.io men med den som utgångspunkt så lyckades jag få till uppkopplingen. Det kändes som en stor seger när webbkonsolen till slut rapporterade en lyckad uppkoppling.
+
+Med fungerande peer-to-peer-uppkoppling och en öppen datakanal kunde jag börja bygga kommunikationsprotokollet för spelet. Meddelanden mellan webbläsarna skickas alltså som text via datakanalen. Den spelare som går in först i ett spelrum blir initiator och dennes webbläsare kommer att agera som spelserver och styra asteroidsvärmen.
+
+Det första som sker när datakanalen öppnas är en latency-mätning där webbläsarna utbyter ett antal ping-pong-meddelanden. Medelvärdet används sedan för att synka asteroiderna någorlunda i den webbläsare som agerar klient.
+
+När bägge spelarna tryckt på mellanslagstangenten och signalerat att de är redo så startas spelet. I gameloopen skickar initiatorn löpande data om asteroid-objektens storlek, position och hastighet. Klienten tar emot dessa meddelanden och synkar sina asteroid-objekt. Bägge spelarnas webbläsare skickar meddelanden om sina positioner och om de avfyrar laserkanonen. Spelarna kan skjuta ner varandra. Positionsmeddelandena skickas med högre frekvens än asteroid-meddelandena. Vid krock med en asteroid eller träff med lasern så blir det game over för den spelaren. Spelomgången fortsätter dock med den kvarvarande spelaren och initiatorn fortsätter att styra asteroid-objekten, även om den spelaren inte längre är kvar på skärmen. Spelomgången pågår tills bägge spelarna kraschat.
+
+Vid avslutad spelomgång visas en skärm där spelarna kan chatta privat via datakanalen och ett nytt spel kan startas. WebRTC-uppkopplingen och datakanalen är fortfarande öppen. Väljer någon av spelarna att avsluta så stängs också datakanalen och uppkopplingen.
+
+På det hela taget fungerar multiplayer-delen bra men jag har inte haft möjlighet att testa utanför mitt eget nätverk och jag antar att det blir problem om spelarna sitter långt ifrån varandra och latencyn blir för hög. Jag skulle rekommendera att spelarna sitter inom samma nätverk eller på väldigt snabba uppkopplingar. När det gäller att synka multiplayer-spel över nätet så verkar det vara en hel vetenskap. Jag har bara skrapat på ytan i det här projektet och jag kanske har gjort det onödigt svårt för mig med ett så pass snabbt spel. Ett strategispel hade varit enklare och hade kanske lämpat sig bättre.
+
+Lite enkel felhantering vid uppkopplingsproblem finns. Om en datakanal inte kan upprättas så får spelarna ett meddelande om detta. Vid plötslig nedkoppling från någon sida så avbryts spelet med en dialogruta. Det är websocketsservern som känner av om en spelare försvinner och då skickar ett meddelande om detta till den andra deltagaren i rummet. Detta visade sig vara en mer pålitlig metod än att känna av om datakanalen eller peer-to-peer-uppkopplingen förloras, då detta inte alltid verkar noteras av webbläsaren.
+
+Datakanalen ska vara krypterad men huruvida denna typ av uppkoppling öppnar några andra säkerhetshål har jag valt att inte sätta mig in i.
+
+#### Projektet och genomförande
+Projektet har i princip bestått av två delar. Den första delen var singleplayer och den flöt på relativt enkelt och bra. Det var också den roliga och mest kreativa delen. Jag kunde bygga vidare på den grund jag hade och utöka med nya idéer. Ljudet var den delen som först kändes problematisk men WebAudio var inte så svårt att sätta sig in och få att fungera. Canvas och animeringar har varit väldigt roligt och givande att sätta sig in i och jag är ganska imponerad av möjligheterna som finns.
+
+Svårigheterna uppstod med multiplayer-delen. Det gick snabbt och bra att få till game-lobbyn men själva spelet visade sig bli mycket svårt få ordning på. Websockets-server gick som sagt bort och WebRTC har varit helvetiskt frustrerande att sätta sig in och få att fungera. Det har tagit väldigt mycket tid i anspråk och orsakat mycket vånda. Flertalet gånger har jag varit nära att ge upp multiplayer-delen helt. Det finns fortfarande många saker kvar att förbättra i denna del. Men jag måste ändå säga att jag är ganska nöjd med det resultat jag har nått så långt.
+
+Det som återstår att göra är en hel del refactoring och mer separation av koddelar. Filen main.js känns aningen rörig och kanske lite för stor. Spelet och koden har liksom vuxit organiskt från ett singleplayer-spel till att innehålla en multiplayer-del. Det vore bra att försöka separera koden lite mer logiskt i fler filer. Jag hittar visserligen i koden själv men det kan bli krångligt för någon annan att göra det. Så där finns potential för vidare förbättringar.
+
+Projektuppgiften i den här kursen är ju väldigt fri vilket ger utrymme för kreativitet. Jag har valt att bara köra på enligt eget huvud och bygga något som jag själv har ansett vara givande. Projektet blev därmed lite överambitiöst med alla dess ingående delar och svårighetsgrad. Men nu när det väl är avklarat så har det såklart varit berikande både kunskapsmässigt och för känslan att klara av något svårt.
+
+Men samtidigt har jag upplevt att projektinstruktionen inte är speciellt tydlig vilket gör det oklart om vad som förväntas och hur det bedöms. Jag hade önskat lite tydligare formulerade krav vad gäller omfattning och teknisk nivå. En sak jag inte är överens med är Krav 2. Det återknyter inte till någon del i kursmomenten och känns nästan som att det hör hemma i någon annan kurs. Jag hade helst sett att det fick ge vika till förmån för något tekniskt krav. Åtminstone känns det felplacerat bland projektkraven och borde ligga som det sista optionella kravet. Alternativt ge det betydligt mindre vikt än ett enskilt krav på hela 10 poäng och baka in det i produktifieringskravet.
+
+#### Kursen
+Kursen är diger och ambitiös med de olika tekniker som kursmomenten behandlar. Det är nästan i mesta laget och någon viss röd tråd saknas. Men för den som verkligen går in för det så ger den breda och användbara kunskaper för vidare Javascript-programmering. HTML5 Canvas, jQuery och Websockets har varit de mest intressanta och givande delarna för mig. De har lett vidare till de tekniker (WebAudio, WebRTC) jag har använt i projektuppgiften. Det som behöver styras upp i viss mån är projektuppgiften. Den behöver tydligare krav och bedömningskriterier. Jag hade också gärna sett att projektet tydligt samlar ihop de tekniker som berörts i kursmomenten.
+
+En risk när en kurs innehåller så mycket och går fort fram är att saker lärs in slarvigt eller fel. Då skaffar man sig dåliga programmeringsvanor som sedan blir svåra att lära sig av med. Det är ju just den akademiska biten om vad som är rätt och fel eller best practice som man vill lära sig på högskolan. Så lite mer fokus på vad som är bra och dålig kod kanske borde ingå i kursmomenten och inte bara hänvisa till Crockfords böcker.
+
+Jag började från noll med språket och kan efter kursmomenten och projektuppgiften konstatera att jag faktiskt lärt mig att bygga något större och fungerande i språket. Det beror förstås på min egen ansträngning men avstampet har skett utifrån kursens innehåll. Tidigare programmeringsvana i annat språk är förstås ett krav för att ta sig igenom kursen. När det gäller handledning har jag ställt några korta frågor i chatten, i övrigt har jag löst problem på egen hand.
+
+Jag skulle kunna tänka mig att rekommendera kursen till någon som redan är ganska erfaren programmerare och snabbt vill lära sig flertalet tekniker i JavaScript. Man kan få med sig många kunskaper från kursen om man anstränger sig. Jag ger kursen en 7:a av 10 i betyg och det som drar ned betyget är tidigare nämnda brister i projektuppgiften.
 
 [Upp](#)
